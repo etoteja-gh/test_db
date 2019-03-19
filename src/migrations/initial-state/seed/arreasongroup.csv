@@ -1,0 +1,5 @@
+"id","Name","CreatedBy","CreatedDate","Description","EditedBy","EditedDate","version"
+"2","Sales","0","NULL","Sales","0","NULL","0"
+"8","Billing","0","NULL","Billing","0","NULL","0"
+"12","Shipping","0","NULL","Shipping","107","2004-06-02T17:59:00.000","0"
+"14","Returns","107","2004-08-24T00:00:00.000","Returns","107","2004-11-24T14:46:37.000","0"

@@ -1,0 +1,3 @@
+"id","Name","Description","State","ValidForCall","ValidForEmail","ValidForFax","ValidForMeeting","ValidForParcel","ValidForTask","ValidForSales","ValidForAr","CreatedBy","CreatedDate","EditedBy","EditedDate","version"
+"0","Open","NULL","0","true","true","true","true","true","true","true","true","0","2010-08-06T11:03:52.000","0","2010-08-06T11:03:52.000","0"
+"1","Complete","NULL","1","true","true","true","true","true","true","true","true","0","2010-08-06T11:03:52.000","0","2010-08-06T11:03:52.000","0"

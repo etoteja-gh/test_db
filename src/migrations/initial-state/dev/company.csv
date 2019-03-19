@@ -1,0 +1,4 @@
+"id","name","num","sourceId","inactive","website","createdBy","createdDate","editedBy","editedDate","version"
+"2","Main Company","Main","NULL","false","NULL","NULL","NULL","NULL","NULL","0"
+"4","Canadian Company","Canada","NULL","false","app.greenbill.com","0","NULL","1","2008-03-12T23:06:15.000","0"
+"5","Bad Debt Company","BD","NULL","false","NULL","NULL","NULL","NULL","NULL","0"

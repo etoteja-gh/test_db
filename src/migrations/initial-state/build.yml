@@ -1,0 +1,18 @@
+databaseChangeLog:
+- include:
+    file: schema.yml
+- includeAll:
+    path: base
+
+- include:
+    context: seed
+    file:    loadData-seed.yml
+- include:
+    context: test
+    file:    loadData-test.yml
+- include:
+    context: dev
+    file:    loadData-dev.yml
+
+- includeAll:
+    path: postCreate

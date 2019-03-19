@@ -1,0 +1,5 @@
+"id","name","num","sourceId","inactive","website","createdBy","createdDate","editedBy","editedDate","version"
+"2","Main Company","Main","NULL","false","NULL","NULL","NULL","NULL","NULL","0"
+"3","Second Company","Comp2","NULL","false","Secondcompany.greenbill.com","1","2001-06-26T21:24:00.000","1","2007-09-07T00:32:42.000","0"
+"5","Bad Debt Company","BD","NULL","false","NULL","NULL","NULL","NULL","NULL","0"
+"227","Test Company","Comp1-2","NULL","false","test.greenbill.com","1","2001-06-26T21:24:00.000","1","2007-09-07T00:32:42.000","0"

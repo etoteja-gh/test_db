@@ -1,0 +1,5 @@
+"id","costAmount","qty","unitPrice","unitOfMeasure","discAmount","discPct","orderNum","itemId","name","code","num","kind","createdBy","createdDate","editedBy","editedDate","version"
+"100","0.0000","99.0000","175.0000","NULL","0.0000","0.142900","NULL","1","hours","Product","NULL","Product","0","2008-08-21T00:00:00.000","0","2008-08-23T15:35:40.000","0"
+"101","0.0000","1.0000","100.0000","NULL","0.0000","0.000000","NULL","2","expense","Product","NULL","Product","0","2008-08-21T00:00:00.000","0","2008-08-23T15:35:40.000","0"
+"102","0.0000","1.0000","2500.0000","NULL","0.0000","0.000000","NULL","3","server","Product","NULL","Product","0","2008-08-21T00:00:00.000","0","2008-08-23T15:35:40.000","0"
+"104","0.0000","1.0000","10.0000","NULL","0.0000","0.000000","NULL","3","shipping","Shipping","NULL","Shipping","0","2008-08-21T00:00:00.000","0","2008-08-23T15:35:40.000","0"

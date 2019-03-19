@@ -1,0 +1,7 @@
+"id","Name","CreatedBy","CreatedDate","Description","EditedBy","EditedDate","FilterScreen","Inactive","filename","version","isSaveResult","orgId","format","type","json","rootDomain","reportFilterId"
+"1","Invoice","0","NULL","Invoice on demand","0","NULL","NULL","NULL","invoicelist.jrxml","0","false","NULL","PDF","Jasper","NULL","NULL","NULL"
+"2","Cust Statement","0","NULL","Customer statement on demand","0","NULL","NULL","NULL","Cust OnDemand Statement.jrxml","0","false","NULL","PDF","Jasper","NULL","NULL","NULL"
+"3","CustAccount Statement","0","NULL","CustAccount statement on demand","0","NULL","NULL","NULL","Div OnDemand Statement List.jrxml","0","false","NULL","PDF","Jasper","NULL","NULL","NULL"
+"50","Aging CustAccount","0","NULL","Cust Account Aging integrated report","0","NULL","CustAccount","NULL","CustAccountAging_int.jrxml","0","false","NULL","PDF","Jasper","NULL","NULL","NULL"
+"51","Aging Customer","0","NULL","Customer  Aging integrated report","0","NULL","Customer","NULL","CustomerAging_int.jrxml","0","false","NULL","PDF","Jasper","NULL","NULL","NULL"
+"52","By Status","0","NULL","ArTran by status integrated report","0","NULL","ArTran","NULL","ArTranByStatus_int.jrxml","0","false","NULL","PDF","Jasper","NULL","NULL","NULL"

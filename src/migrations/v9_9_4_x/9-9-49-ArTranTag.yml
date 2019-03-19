@@ -1,0 +1,23 @@
+databaseChangeLog:
+- changeSet:
+    id: 9-9-49-ArTranTag.01
+    author: Alexey
+    changes:
+    - createTable:
+        tableName: ArTranTag
+        columns:
+        - column:
+            constraints: {nullable: false}
+            defaultValueNumeric: 0
+            name: arTranId
+            type: BIGINT
+        - column:
+            constraints: {nullable: false}
+            defaultValueNumeric: 0
+            name: tagId
+            type: BIGINT
+- changeSet:
+    id: 9-9-49-ArTranTag.02
+    author: Alexey
+    changes:
+    - addPrimaryKey: {columnNames: 'arTranId, tagId', constraintName: PK_ArTranTag, tableName: ArTranTag}

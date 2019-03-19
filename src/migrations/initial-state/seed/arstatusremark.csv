@@ -1,0 +1,8 @@
+"id","Name","CreatedBy","CreatedDate","Description","EditedBy","EditedDate","Source","SourceId","version"
+"3","3 No Response I","108","2001-03-05T10:01:00.000","No Response to Internal Inquires","108","2001-03-05T10:01:00.000","NULL","NULL","0"
+"5","5 Credits","1","NULL","Returned and Matched with Credits","0","NULL","NULL","NULL","0"
+"6","6 Agreements","108","2001-03-05T09:57:00.000","Preapproved Negotiated Agreements","108","2001-03-05T09:57:00.000","NULL","NULL","0"
+"7","7 No Fault","108","2001-03-05T09:59:00.000","Known Noncompliance","108","2001-03-05T09:59:00.000","NULL","NULL","0"
+"8","8 Internal Error","108","2001-03-05T10:00:00.000","Compliance Error","107","2002-01-07T22:22:00.000","NULL","NULL","0"
+"9","9 No Response E","108","2001-03-05T10:02:00.000","No Response to External Inquires","108","2001-03-05T10:02:00.000","NULL","NULL","0"
+"10","10 Post Audit","108","2001-07-17T11:04:00.000","Can Not Prove","108","2001-07-17T11:13:00.000","NULL","NULL","0"

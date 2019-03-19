@@ -1,0 +1,4 @@
+"id","name","num","custId","inactive","name2","keyContactId","commentsCollector","createdBy","createdDate","editedBy","editedDate","version","relatedId","typeId","lienId","setupId","isLocationDifferent"
+"124","Account Inc.","act124","101","false","NULL","NULL","NULL","NULL","NULL","NULL","NULL","0","124","100","NULL","NULL","NULL"
+"125","Job Site","job125","101","false","NULL","NULL","NULL","NULL","NULL","NULL","NULL","0","NULL","101","NULL","NULL","NULL"
+"126","Job Site","job126","1352","false","NULL","NULL","NULL","NULL","NULL","NULL","NULL","0","NULL","101","NULL","NULL","NULL"

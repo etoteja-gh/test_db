@@ -1,0 +1,8 @@
+"id","Name","CreatedBy","CreatedDate","Description","EditedBy","EditedDate","IsGroup","version"
+"1","Total","0","NULL","total","0","NULL","true","0"
+"2","Category","0","NULL","category","0","NULL","true","0"
+"3","Brand","0","NULL","brand","0","NULL","true","0"
+"4","Sku","0","NULL","sku","0","NULL","true","0"
+"10","Service","0","NULL","Service","0","NULL","false","0"
+"11","Product","0","NULL","Product","0","NULL","false","0"
+"13","Sales Tax","0","NULL","Sales Tax","0","NULL","false","0"

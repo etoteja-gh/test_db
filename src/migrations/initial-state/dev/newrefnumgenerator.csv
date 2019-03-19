@@ -1,0 +1,2 @@
+"id","CompanyId","CreatedBy","CreatedDate","EditedBy","EditedDate","Description","KeyName","NextId","Prefix","RangeMax","RangeMin","Suffix","version"
+"1","NULL","0","NULL","0","NULL","Default row for normal accounts","Generic","1000","DCS","1073741824","1000","NULL","0"

@@ -1,0 +1,7 @@
+"id","code","num","name","description","unitPrice","unitOfMeasure","glAcctIncome","glAcctExpense","glAcctInventory","kind","lineTypeId","createdBy","createdDate","editedBy","editedDate","version"
+"1","Service","NULL","Service","NULL","0.0000","NULL","NULL","NULL","NULL","Service","NULL","1","2018-12-03T07:58:45.000","NULL","NULL","0"
+"2","Product","NULL","Product","NULL","0.0000","NULL","NULL","NULL","NULL","Product","NULL","1","2018-12-03T07:58:45.000","NULL","NULL","0"
+"3","Shipping","NULL","Shipping","NULL","0.0000","NULL","NULL","NULL","NULL","Shipping","NULL","1","2018-12-03T07:58:45.000","NULL","NULL","0"
+"5","SvcCharge","NULL","SvcCharge","NULL","0.0000","NULL","NULL","NULL","NULL","SvcCharge","NULL","1","2018-12-03T07:58:45.000","NULL","NULL","0"
+"6","FinCharge","NULL","FinCharge","NULL","0.0000","NULL","NULL","NULL","NULL","FinCharge","NULL","1","2018-12-03T07:58:45.000","NULL","NULL","0"
+"7","Other","NULL","Other","NULL","0.0000","NULL","NULL","NULL","NULL","Other","NULL","1","2018-12-03T07:58:45.000","NULL","NULL","0"

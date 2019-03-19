@@ -1,0 +1,5 @@
+"id","Name","CreatedBy","CreatedDate","Description","EditedBy","EditedDate","GroupType","Inactive","version"
+"0","Default","0","NULL","Default Correction Group","0","NULL","","false","0"
+"1000","Demo Matching","1","2010-07-02T13:32:42.000","Group of customers for demo system","1","2010-07-02T13:32:42.000","Match","false","0"
+"1001","Demo Memo","1","2010-07-02T13:34:51.000","Group of customers for demo system","1","2010-07-02T13:48:01.000","Memo","false","0"
+"1002","Demo Disc","1","2010-07-02T13:34:51.000","Group of customers for demo system","1","2010-07-02T13:48:01.000","Disc","false","0"

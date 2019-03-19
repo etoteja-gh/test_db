@@ -1,0 +1,3 @@
+"id","Name","CreatedBy","CreatedDate","EditedBy","EditedDate","Email","Inactive","IsOwner","Login","ManagerId","MustChangePassword","Password","PasswordChangedDate","contactId","version","resetPasswordToken","resetPasswordDate"
+"1","9ci","107","2004-09-15T11:35:54.000","1","2008-01-15T13:51:57.000","admin@testmeee.com","false","false","admin","0","false","$2a$10$QZn.9nm6xZBdGzRxMQb2HuXwmAijYb945qjudid4Lmhu2X8u4V30G","2008-01-15T13:51:57.000","1","0","NULL","NULL"
+"2","9ci-app","107","2004-09-15T11:35:54.000","1","2008-01-15T13:51:57.000","9ci-app@testmeee.com","false","false","9ci-app","0","false","999plazadrive","2008-01-15T13:51:57.000","2","0","NULL","NULL"

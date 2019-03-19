@@ -1,0 +1,150 @@
+# Java Gradle CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-java/ for more details
+#
+version: 2
+jobs:
+  build:
+    # branches:
+    #   only:
+    #   - master
+
+    docker:
+      # 9ci's grails docker with mysql client, this is where all the steps are run
+      - image: dock9/oraclejdk8:gradle-3.5.1
+
+      # linked to above, localhost:3606 will see this.
+      - image: mysql/mysql-server:5.7
+        environment:
+          MYSQL_ROOT_PASSWORD: 999Foobar
+          MYSQL_ROOT_HOST: '%'
+      - image: microsoft/mssql-server-linux:2017-CU4
+        environment:
+          SA_PASSWORD: 999Foobar
+          ACCEPT_EULA: Y
+
+    environment:
+      JVM_OPTS: -Xmx3200m
+      MALLOC_ARENA_MAX: 2
+      #GRADLE_OPTS: "-Xmx2048m -Dorg.gradle.daemon=false"
+      TERM: dumb
+
+    parallelism: 1
+    # resource_class: large
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "build.gradle" }}
+
+      - run: gradle buildEnvironment
+
+      - save_cache:
+          paths:
+            - ~/.m2
+            - ~/.gradle
+          key: v1-dependencies-{{ checksum "build.gradle" }}
+
+      - add_ssh_keys:
+          fingerprints:
+            - "32:15:5c:47:98:e9:3f:09:f9:32:c9:22:00:cc:15:9a"
+
+      # run tests!
+      # - run: gradle clean; gradle gorm-tools:check --no-daemon --max-workers 2
+      - run: ./ci-scripts/dbcreate.sh test
+
+      # - store_artifacts:
+      #     path: plugin/build/reports/tests/test/
+      #     destination: test-reports/unit/
+
+      # - store_artifacts:
+      #     path: plugin/build/reports/codenarc/
+      #     destination: codenarc/ 
+
+      # - store_test_results:
+      #     path: plugin/build/test-results
+
+  push_docker:
+    docker:
+      - image: docker:17.03.2-ce-git
+      # 9ci's grails docker with mysql client, this is where all the steps are run
+      - image: dock9/oraclejdk8:gradle-3.5.1
+
+      # linked to above, localhost:3606 will see this.
+      - image: mysql/mysql-server:5.7
+        environment:
+          MYSQL_ROOT_PASSWORD: 999Foobar
+          MYSQL_ROOT_HOST: '%'
+      - image: microsoft/mssql-server-linux:2017-CU4
+        environment:
+          SA_PASSWORD: 999Foobar
+          ACCEPT_EULA: Y
+
+    environment:
+      JVM_OPTS: -Xmx3200m
+      MALLOC_ARENA_MAX: 2
+      #GRADLE_OPTS: "-Xmx2048m -Dorg.gradle.daemon=false"
+      TERM: dumb
+
+    parallelism: 1
+    # resource_class: large
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "build.gradle" }}
+
+      - run: gradle buildEnvironment
+
+      - save_cache:
+          paths:
+            - ~/.m2
+            - ~/.gradle
+          key: v1-dependencies-{{ checksum "build.gradle" }}
+
+      # run dev!
+      # - run: gradle clean; gradle gorm-tools:check --no-daemon --max-workers 2
+      - run: ./ci-scripts/dbcreate.sh dev
+
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: Build and push Docker image
+          command: |
+              docker build -t $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG .
+              echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USER $DOCKERHUB_PASSWORD --password-stdin
+              docker push "${DOCKER_REPOSITORY}:${DOCKER_REPOSITORY_TAG}"
+
+  deploy:
+      machine:
+        enabled: true
+      steps:
+        - add_ssh_keys:
+            fingerprints:
+              - $TARGET_SERVER_SSH_FINGERPRINT
+        - run:
+            name: Deploy nine-db from docker repository to server
+            command: |
+              ssh -o StrictHostKeyChecking=no $TARGET_SERVER_USER_NAME@$TARGET_SERVER_ADDRESS "/bin/bash $DEPLOYMENT_SCRIPT_FILE_PATH $DOCKERHUB_USER $DOCKERHUB_PASSWORD $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG"
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - push_docker:
+          requires:
+            - build
+      - deploy:
+          requires:
+            - push_docker
+          filters:
+            branches:
+              only:
+                - release/9.9.x

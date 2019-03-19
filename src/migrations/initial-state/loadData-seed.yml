@@ -1,0 +1,1226 @@
+databaseChangeLog:
+- changeSet:
+    id: 1549304897025-1
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: AcCorCode
+        separator: ','
+        quotchar: '"'
+        file: seed/accorcode.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Name, name: Name, type: STRING}
+        - column: {header: ArTranType, name: ArTranType, type: STRING}
+        - column: {header: CorCodeType, name: CorCodeType, type: NUMERIC}
+        - column: {header: CorCodeTypeDesc, name: CorCodeTypeDesc, type: STRING}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate}
+        - column: {header: ReasonId, name: ReasonId, type: NUMERIC}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-2
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: AcDiscountSetup
+        separator: ','
+        quotchar: '"'
+        file: seed/acdiscountsetup.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate}
+        - column: {header: GroupId, name: GroupId, type: NUMERIC}
+        - column: {header: Value, name: Value, type: STRING}
+        - column: {header: Variable, name: Variable, type: STRING}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-6
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: AcMatchSetup
+        separator: ','
+        quotchar: '"'
+        file: seed/acmatchsetup.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Variable, name: Variable, type: STRING}
+        - column: {header: value, name: value, type: STRING}
+        - column: {header: GroupId, name: GroupId, type: NUMERIC}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-7
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: AcMemoSetup
+        separator: ','
+        quotchar: '"'
+        file: seed/acmemosetup.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate}
+        - column: {header: GroupId, name: GroupId, type: NUMERIC}
+        - column: {header: Value, name: Value, type: STRING}
+        - column: {header: Variable, name: Variable, type: STRING}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-9
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: AcOffsetSetup
+        separator: ','
+        quotchar: '"'
+        file: seed/acoffsetsetup.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate}
+        - column: {header: GroupId, name: GroupId, type: NUMERIC}
+        - column: {header: Value, name: Value, type: STRING}
+        - column: {header: Variable, name: Variable, type: STRING}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-12
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: AcSetup
+        separator: ','
+        quotchar: '"'
+        file: seed/acsetup.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Value, name: Value, type: STRING}
+        - column: {header: Variable, name: Variable, type: STRING}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-13
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: AcSetupGroup
+        separator: ','
+        quotchar: '"'
+        file: seed/acsetupgroup.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Name, name: Name, type: STRING}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate}
+        - column: {header: GroupType, name: GroupType, type: STRING}
+        - column: {header: Inactive, name: Inactive, type: BOOLEAN}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-14
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: AclAuths
+        separator: ','
+        quotchar: '"'
+        file: seed/aclauths.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: IsEditable, name: IsEditable, type: BOOLEAN}
+        - column: {header: InVisible, name: InVisible, type: BOOLEAN}
+        - column: {header: ObjectNameId, name: ObjectNameId, type: NUMERIC}
+        - column: {header: PropertyNameId, name: PropertyNameId, type: NUMERIC}
+        - column: {header: RoleId, name: RoleId, type: NUMERIC}
+        - column: {header: SystemRow, name: SystemRow, type: NUMERIC}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-15
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: AclObjectNames
+        separator: ','
+        quotchar: '"'
+        file: seed/aclobjectnames.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Name, name: Name, type: STRING}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: InVisible, name: InVisible, type: BOOLEAN}
+        - column: {header: SystemRow, name: SystemRow, type: NUMERIC}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-16
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: AclPropertyNames
+        separator: ','
+        quotchar: '"'
+        file: seed/aclpropertynames.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Name, name: Name, type: STRING}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: InVisible, name: InVisible, type: BOOLEAN}
+        - column: {header: SystemRow, name: SystemRow, type: NUMERIC}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-28
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: AppParam
+        separator: ','
+        quotchar: '"'
+        file: seed/appparam.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Variable, name: Variable, type: STRING}
+        - column: {header: Value, name: Value, type: STRING}
+        - column: {header: companyId, name: companyId}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate, type: DATE}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-35
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: ArAgingBucketSetup
+        separator: ','
+        quotchar: '"'
+        file: seed/aragingbucketsetup.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Name, name: Name, type: STRING}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate, type: DATE}
+        - column: {header: EndDay, name: EndDay, type: NUMERIC}
+        - column: {header: IsUsed, name: IsUsed, type: BOOLEAN}
+        - column: {header: StartDay, name: StartDay, type: NUMERIC}
+        - column: {header: version, name: version, type: NUMERIC}
+        - column: {header: month, name: month, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-41
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: ArCollectionStep
+        separator: ','
+        quotchar: '"'
+        file: seed/arcollectionstep.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Subject, name: Subject, type: STRING}
+        - column: {header: AttachStatement, name: AttachStatement, type: BOOLEAN}
+        - column: {header: companyId, name: companyId}
+        - column: {header: CreatedBy, name: CreatedBy}
+        - column: {header: CreatedDate, name: CreatedDate}
+        - column: {header: DaysPastDue, name: DaysPastDue, type: NUMERIC}
+        - column: {header: EditedBy, name: EditedBy}
+        - column: {header: EditedDate, name: EditedDate}
+        - column: {header: ExcludeDisputes, name: ExcludeDisputes, type: BOOLEAN}
+        - column: {header: HoldForReview, name: HoldForReview, type: BOOLEAN}
+        - column: {header: Kind, name: Kind, type: STRING}
+        - column: {header: PastDueAmount, name: PastDueAmount, type: NUMERIC}
+        - column: {header: PastDueOperator, name: PastDueOperator}
+        - column: {header: Priority, name: Priority, type: NUMERIC}
+        - column: {header: SendTo, name: SendTo, type: STRING}
+        - column: {header: SendInvoiceCopy, name: SendInvoiceCopy, type: NUMERIC}
+        - column: {header: TemplateId, name: TemplateId, type: NUMERIC}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-45
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: ArReason
+        separator: ','
+        quotchar: '"'
+        file: seed/arreason.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Name, name: Name, type: STRING}
+        - column: {header: ActivityProfileId, name: ActivityProfileId, type: NUMERIC}
+        - column: {header: ClearAccount, name: ClearAccount, type: STRING}
+        - column: {header: ClearSubAcct, name: ClearSubAcct, type: STRING}
+        - column: {header: companyId, name: companyId}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate, type: DATE}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate, type: DATE}
+        - column: {header: groupId, name: groupId, type: NUMERIC}
+        - column: {header: Inactive, name: Inactive, type: BOOLEAN}
+        - column: {header: IsSubReason, name: IsSubReason, type: BOOLEAN}
+        - column: {header: InVisible, name: InVisible, type: BOOLEAN}
+        - column: {header: ReasonParentId, name: ReasonParentId}
+        - column: {header: Source, name: Source}
+        - column: {header: SourceId, name: SourceId}
+        - column: {header: SystemRow, name: SystemRow, type: NUMERIC}
+        - column: {header: User1, name: User1, type: STRING}
+        - column: {header: User2, name: User2}
+        - column: {header: User3, name: User3}
+        - column: {header: ValidDocType, name: ValidDocType}
+        - column: {header: version, name: version, type: NUMERIC}
+        - column: {header: restrictUpdate, name: restrictUpdate}
+- changeSet:
+    id: 1549304897025-47
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: ArReasonGroup
+        separator: ','
+        quotchar: '"'
+        file: seed/arreasongroup.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Name, name: Name, type: STRING}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate, type: DATE}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate, type: DATE}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-51
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: ArStatus
+        separator: ','
+        quotchar: '"'
+        file: seed/arstatus.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Name, name: Name, type: STRING}
+        - column: {header: BaseStatusId, name: BaseStatusId, type: NUMERIC}
+        - column: {header: ClosingCmArTranTypeId, name: ClosingCmArTranTypeId, type: NUMERIC}
+        - column: {header: ClosingDmArTranTypeId, name: ClosingDmArTranTypeId, type: NUMERIC}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate}
+        - column: {header: InSearch, name: InSearch, type: BOOLEAN}
+        - column: {header: InTickler, name: InTickler, type: BOOLEAN}
+        - column: {header: InVisible, name: InVisible, type: BOOLEAN}
+        - column: {header: RequireReason, name: RequireReason, type: BOOLEAN}
+        - column: {header: Source, name: Source}
+        - column: {header: SourceId, name: SourceId}
+        - column: {header: version, name: version, type: NUMERIC}
+        - column: {header: inactive, name: inactive, type: BOOLEAN}
+- changeSet:
+    id: 1549304897025-52
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: ArStatusRemark
+        separator: ','
+        quotchar: '"'
+        file: seed/arstatusremark.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Name, name: Name, type: STRING}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate, type: DATE}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate, type: DATE}
+        - column: {header: Source, name: Source}
+        - column: {header: SourceId, name: SourceId}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-53
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: ArTerms
+        separator: ','
+        quotchar: '"'
+        file: seed/arterms.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Name, name: Name, type: STRING}
+        - column: {header: companyId, name: companyId}
+        - column: {header: CreatedBy, name: CreatedBy}
+        - column: {header: CreatedDate, name: CreatedDate, type: DATE}
+        - column: {header: Description, name: Description}
+        - column: {header: DiscountDays, name: DiscountDays, type: NUMERIC}
+        - column: {header: DiscountPercent, name: DiscountPercent, type: NUMERIC}
+        - column: {header: DueInDays, name: DueInDays, type: NUMERIC}
+        - column: {header: EditedBy, name: EditedBy}
+        - column: {header: EditedDate, name: EditedDate, type: DATE}
+        - column: {header: DiscountForACHDays, name: DiscountForACHDays, type: NUMERIC}
+        - column: {header: DiscountForACH, name: DiscountForACH, type: NUMERIC}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-69
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: ArTranLineType
+        separator: ','
+        quotchar: '"'
+        file: seed/artranlinetype.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: code, name: code, type: STRING}
+        - column: {header: name, name: name, type: STRING}
+        - column: {header: kind, name: kind, type: STRING}
+        - column: {header: glAcct, name: glAcct, type: STRING}
+        - column: {header: sourceId, name: sourceId, type: STRING}
+        - column: {header: inactive, name: inactive, type: BOOLEAN}
+        - column: {header: invisible, name: invisible, type: BOOLEAN}
+        - column: {header: isSystem, name: isSystem, type: BOOLEAN}
+        - column: {header: writeOffArReasonId, name: writeOffArReasonId, type: NUMERIC}
+        - column: {header: createdBy, name: createdBy, type: NUMERIC}
+        - column: {header: createdDate, name: createdDate, type: DATE}
+        - column: {header: editedBy, name: editedBy}
+        - column: {header: editedDate, name: editedDate}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-78
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: ArTranType
+        separator: ','
+        quotchar: '"'
+        file: seed/artrantype.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Name, name: Name, type: STRING}
+        - column: {header: companyId, name: companyId}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate, type: DATE}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: DocType, name: DocType, type: STRING}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate, type: DATE}
+        - column: {header: GlAcct, name: GlAcct, type: STRING}
+        - column: {header: GlDetailAcct, name: GlDetailAcct, type: STRING}
+        - column: {header: IsOpposingTran, name: IsOpposingTran, type: BOOLEAN}
+        - column: {header: movedTranTypeId, name: movedTranTypeId}
+        - column: {header: NewRefnumGeneratorId, name: NewRefnumGeneratorId, type: NUMERIC}
+        - column: {header: reversingTranTypeId, name: reversingTranTypeId, type: NUMERIC}
+        - column: {header: Source, name: Source}
+        - column: {header: SourceId, name: SourceId, type: STRING}
+        - column: {header: UseReasonGL, name: UseReasonGL, type: BOOLEAN}
+        - column: {header: VisibleToAutocash, name: VisibleToAutocash, type: BOOLEAN}
+        - column: {header: version, name: version, type: NUMERIC}
+        - column: {header: opposingTranTypeId, name: opposingTranTypeId, type: NUMERIC}
+        - column: {header: baseTranTypeId, name: baseTranTypeId, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-80
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: Attachment
+        separator: ','
+        quotchar: '"'
+        file: seed/attachment.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Name, name: Name, type: STRING}
+        - column: {header: Description, name: Description}
+        - column: {header: kind, name: kind, type: STRING}
+        - column: {header: CreatedBy, name: CreatedBy}
+        - column: {header: CreatedDate, name: CreatedDate}
+        - column: {header: EditedBy, name: EditedBy}
+        - column: {header: EditedDate, name: EditedDate}
+        - column: {header: Location, name: Location, type: STRING}
+        - column: {header: SourceId, name: SourceId}
+        - column: {header: Source, name: Source, type: STRING}
+        - column: {header: FileDataId, name: FileDataId, type: NUMERIC}
+        - column: {header: Extension, name: Extension, type: STRING}
+        - column: {header: MimeType, name: MimeType, type: STRING}
+        - column: {header: contentLength, name: contentLength, type: NUMERIC}
+        - column: {header: Subject, name: Subject, type: STRING}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-83
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: Client
+        separator: ','
+        quotchar: '"'
+        file: seed/client.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: name, name: name, type: STRING}
+        - column: {header: num, name: num, type: STRING}
+        - column: {header: appUrl, name: appUrl, type: STRING}
+        - column: {header: subDomain, name: subDomain, type: STRING}
+        - column: {header: orgId, name: orgId, type: NUMERIC}
+        - column: {header: createdBy, name: createdBy, type: NUMERIC}
+        - column: {header: createdDate, name: createdDate, type: DATE}
+        - column: {header: editedBy, name: editedBy, type: NUMERIC}
+        - column: {header: editedDate, name: editedDate, type: DATE}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-84
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: Company
+        separator: ','
+        quotchar: '"'
+        file: seed/company.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: name, name: name, type: STRING}
+        - column: {header: num, name: num, type: STRING}
+        - column: {header: sourceId, name: sourceId}
+        - column: {header: inactive, name: inactive, type: BOOLEAN}
+        - column: {header: website, name: website}
+        - column: {header: createdBy, name: createdBy}
+        - column: {header: createdDate, name: createdDate}
+        - column: {header: editedBy, name: editedBy}
+        - column: {header: editedDate, name: editedDate}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-85
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: Contact
+        separator: ','
+        quotchar: '"'
+        file: seed/contact.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: name, name: name, type: STRING}
+        - column: {header: num, name: num}
+        - column: {header: email, name: email}
+        - column: {header: phone, name: phone}
+        - column: {header: orgId, name: orgId, type: NUMERIC}
+        - column: {header: tagForReminders, name: tagForReminders, type: BOOLEAN}
+        - column: {header: comments, name: comments}
+        - column: {header: department, name: department}
+        - column: {header: firstName, name: firstName, type: STRING}
+        - column: {header: flexId, name: flexId}
+        - column: {header: inactive, name: inactive, type: BOOLEAN}
+        - column: {header: isLocationDifferent, name: isLocationDifferent, type: BOOLEAN}
+        - column: {header: isPrimary, name: isPrimary, type: BOOLEAN}
+        - column: {header: jobTitle, name: jobTitle, type: STRING}
+        - column: {header: lastName, name: lastName, type: STRING}
+        - column: {header: locationId, name: locationId}
+        - column: {header: middleName, name: middleName}
+        - column: {header: nickName, name: nickName}
+        - column: {header: salutation, name: salutation}
+        - column: {header: type, name: type}
+        - column: {header: visibleToOrgType, name: visibleToOrgType}
+        - column: {header: createdBy, name: createdBy, type: NUMERIC}
+        - column: {header: createdDate, name: createdDate, type: DATE}
+        - column: {header: editedBy, name: editedBy, type: NUMERIC}
+        - column: {header: editedDate, name: editedDate, type: DATE}
+        - column: {header: version, name: version, type: NUMERIC}
+        - column: {header: birthday, name: birthday}
+        - column: {header: entityName, name: entityName}
+- changeSet:
+    id: 1549304897025-100
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: CustAccount
+        separator: ','
+        quotchar: '"'
+        file: seed/custaccount.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: name, name: name, type: STRING}
+        - column: {header: num, name: num, type: STRING}
+        - column: {header: custId, name: custId, type: NUMERIC}
+        - column: {header: inactive, name: inactive, type: BOOLEAN}
+        - column: {header: name2, name: name2}
+        - column: {header: keyContactId, name: keyContactId}
+        - column: {header: commentsCollector, name: commentsCollector}
+        - column: {header: createdBy, name: createdBy}
+        - column: {header: createdDate, name: createdDate}
+        - column: {header: editedBy, name: editedBy}
+        - column: {header: editedDate, name: editedDate}
+        - column: {header: version, name: version, type: NUMERIC}
+        - column: {header: relatedId, name: relatedId, type: NUMERIC}
+        - column: {header: typeId, name: typeId, type: NUMERIC}
+        - column: {header: lienId, name: lienId}
+        - column: {header: setupId, name: setupId}
+        - column: {header: isLocationDifferent, name: isLocationDifferent}
+- changeSet:
+    id: 1549304897025-103
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: CustClass
+        separator: ','
+        quotchar: '"'
+        file: seed/custclass.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Name, name: Name, type: STRING}
+        - column: {header: acDiscountGroupId, name: acDiscountGroupId}
+        - column: {header: acMatchGroupId, name: acMatchGroupId}
+        - column: {header: acMemoGroupId, name: acMemoGroupId}
+        - column: {header: acOffsetGroupId, name: acOffsetGroupId}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate, type: DATE}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate, type: DATE}
+        - column: {header: Source, name: Source}
+        - column: {header: SourceId, name: SourceId}
+        - column: {header: ValidFor, name: ValidFor}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-124
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: EmailSetup
+        separator: ','
+        quotchar: '"'
+        file: seed/emailsetup.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: useCompanyServer, name: useCompanyServer, type: BOOLEAN}
+        - column: {header: useSsl, name: useSsl, type: BOOLEAN}
+        - column: {header: authtype, name: authtype, type: STRING}
+        - column: {header: smtpHost, name: smtpHost, type: STRING}
+        - column: {header: smtpPort, name: smtpPort, type: NUMERIC}
+        - column: {header: smtpLogin, name: smtpLogin, type: STRING}
+        - column: {header: smtpPassword, name: smtpPassword, type: STRING}
+        - column: {header: bcc, name: bcc, type: STRING}
+        - column: {header: smtpSendEmail, name: smtpSendEmail, type: STRING}
+        - column: {header: smtpSendName, name: smtpSendName, type: STRING}
+        - column: {header: smtpReplyTo, name: smtpReplyTo, type: STRING}
+        - column: {header: companyId, name: companyId}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-125
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: EntityProps
+        separator: ','
+        quotchar: '"'
+        file: seed/entityprops.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: EntityName, name: EntityName, type: STRING}
+        - column: {header: ColumnName, name: ColumnName, type: STRING}
+        - column: {header: Caption, name: Caption, type: STRING}
+        - column: {header: Alignment, name: Alignment, type: NUMERIC}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate}
+        - column: {header: DefaultValue, name: DefaultValue}
+        - column: {header: DisplayMaskId, name: DisplayMaskId, type: NUMERIC}
+        - column: {header: Editable, name: Editable, type: BOOLEAN}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate, type: DATE}
+        - column: {header: EntityId, name: EntityId, type: NUMERIC}
+        - column: {header: IsRequired, name: IsRequired, type: BOOLEAN}
+        - column: {header: OrderForForm, name: OrderForForm, type: NUMERIC}
+        - column: {header: OrderForMassUpdate, name: OrderForMassUpdate, type: NUMERIC}
+        - column: {header: OrderForQuickEntry, name: OrderForQuickEntry, type: NUMERIC}
+        - column: {header: OrderForSearch, name: OrderForSearch, type: NUMERIC}
+        - column: {header: Ordinal, name: Ordinal, type: NUMERIC}
+        - column: {header: RoleId, name: RoleId, type: NUMERIC}
+        - column: {header: ScreenName, name: ScreenName}
+        - column: {header: SearchType, name: SearchType, type: NUMERIC}
+        - column: {header: UserLevelEditable, name: UserLevelEditable, type: NUMERIC}
+        - column: {header: UserLevelForm, name: UserLevelForm, type: NUMERIC}
+        - column: {header: UserLevelMassUpdate, name: UserLevelMassUpdate, type: NUMERIC}
+        - column: {header: UserLevelQuickEntry, name: UserLevelQuickEntry, type: NUMERIC}
+        - column: {header: UserLevelSave, name: UserLevelSave, type: NUMERIC}
+        - column: {header: UserLevelSearch, name: UserLevelSearch, type: NUMERIC}
+        - column: {header: UserLevelVisible, name: UserLevelVisible, type: NUMERIC}
+        - column: {header: TrackHistory, name: TrackHistory, type: BOOLEAN}
+        - column: {header: UserId, name: UserId, type: NUMERIC}
+        - column: {header: ViewId, name: ViewId, type: NUMERIC}
+        - column: {header: Visible, name: Visible, type: NUMERIC}
+        - column: {header: Width, name: Width, type: NUMERIC}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-127
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: FileData
+        separator: ','
+        quotchar: '"'
+        file: seed/filedata.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate, type: DATE}
+        - column: {header: Data, name: Data, type: STRING}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate, type: DATE}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-135
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: Item
+        separator: ','
+        quotchar: '"'
+        file: seed/item.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: code, name: code, type: STRING}
+        - column: {header: num, name: num}
+        - column: {header: name, name: name, type: STRING}
+        - column: {header: description, name: description}
+        - column: {header: unitPrice, name: unitPrice, type: NUMERIC}
+        - column: {header: unitOfMeasure, name: unitOfMeasure}
+        - column: {header: glAcctIncome, name: glAcctIncome}
+        - column: {header: glAcctExpense, name: glAcctExpense}
+        - column: {header: glAcctInventory, name: glAcctInventory}
+        - column: {header: kind, name: kind, type: STRING}
+        - column: {header: lineTypeId, name: lineTypeId}
+        - column: {header: createdBy, name: createdBy, type: NUMERIC}
+        - column: {header: createdDate, name: createdDate, type: DATE}
+        - column: {header: editedBy, name: editedBy}
+        - column: {header: editedDate, name: editedDate}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-139
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: Location
+        separator: ','
+        quotchar: '"'
+        file: seed/location.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: orgId, name: orgId, type: NUMERIC}
+        - column: {header: contactId, name: contactId}
+        - column: {header: kind, name: kind, type: STRING}
+        - column: {header: name, name: name}
+        - column: {header: street1, name: street1, type: STRING}
+        - column: {header: street2, name: street2}
+        - column: {header: city, name: city, type: STRING}
+        - column: {header: state, name: state, type: STRING}
+        - column: {header: zipCode, name: zipCode, type: STRING}
+        - column: {header: country, name: country, type: STRING}
+        - column: {header: county, name: county}
+        - column: {header: inactive, name: inactive, type: BOOLEAN}
+        - column: {header: address3, name: address3}
+        - column: {header: address4, name: address4}
+        - column: {header: createdBy, name: createdBy, type: NUMERIC}
+        - column: {header: createdDate, name: createdDate, type: DATE}
+        - column: {header: editedBy, name: editedBy, type: NUMERIC}
+        - column: {header: editedDate, name: editedDate, type: DATE}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-142
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: NewRefnumGenerator
+        separator: ','
+        quotchar: '"'
+        file: seed/newrefnumgenerator.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: CompanyId, name: CompanyId}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: KeyName, name: KeyName, type: STRING}
+        - column: {header: NextId, name: NextId, type: NUMERIC}
+        - column: {header: Prefix, name: Prefix, type: STRING}
+        - column: {header: RangeMax, name: RangeMax, type: NUMERIC}
+        - column: {header: RangeMin, name: RangeMin, type: NUMERIC}
+        - column: {header: Suffix, name: Suffix}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-145
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: Org
+        separator: ','
+        quotchar: '"'
+        file: seed/org.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: name, name: name, type: STRING}
+        - column: {header: num, name: num, type: STRING}
+        - column: {header: orgTypeId, name: orgTypeId, type: NUMERIC}
+        - column: {header: companyId, name: companyId, type: NUMERIC}
+        - column: {header: calcId, name: calcId}
+        - column: {header: comments, name: comments, type: STRING}
+        - column: {header: infoId, name: infoId, type: NUMERIC}
+        - column: {header: flexId, name: flexId}
+        - column: {header: orgSourceId, name: orgSourceId}
+        - column: {header: createdBy, name: createdBy, type: NUMERIC}
+        - column: {header: createdDate, name: createdDate, type: DATE}
+        - column: {header: editedBy, name: editedBy, type: NUMERIC}
+        - column: {header: editedDate, name: editedDate, type: DATE}
+        - column: {header: version, name: version, type: NUMERIC}
+        - column: {header: locationId, name: locationId, type: NUMERIC}
+        - column: {header: rootOrgId, name: rootOrgId}
+        - column: {header: memberId, name: memberId}
+        - column: {header: inactive, name: inactive, type: BOOLEAN}
+- changeSet:
+    id: 1549304897025-150
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: OrgInfo
+        separator: ','
+        quotchar: '"'
+        file: seed/orginfo.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: phone, name: phone, type: STRING}
+        - column: {header: fax, name: fax}
+        - column: {header: website, name: website, type: STRING}
+        - column: {header: createdBy, name: createdBy, type: NUMERIC}
+        - column: {header: createdDate, name: createdDate, type: DATE}
+        - column: {header: editedBy, name: editedBy, type: NUMERIC}
+        - column: {header: editedDate, name: editedDate, type: DATE}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-153
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: OrgSource
+        separator: ','
+        quotchar: '"'
+        file: seed/orgsource.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: orgId, name: orgId, type: NUMERIC}
+        - column: {header: originator, name: originator, type: BOOLEAN}
+        - column: {header: source, name: source, type: STRING}
+        - column: {header: sourceId, name: sourceId, type: STRING}
+        - column: {header: sourceType, name: sourceType, type: STRING}
+        - column: {header: sourceVersion, name: sourceVersion}
+        - column: {header: createdBy, name: createdBy, type: NUMERIC}
+        - column: {header: createdDate, name: createdDate, type: DATE}
+        - column: {header: editedBy, name: editedBy, type: NUMERIC}
+        - column: {header: editedDate, name: editedDate, type: DATE}
+        - column: {header: version, name: version, type: NUMERIC}
+        - column: {header: orgTypeId, name: orgTypeId, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-155
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: OrgType
+        separator: ','
+        quotchar: '"'
+        file: seed/orgtype.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Name, name: Name, type: STRING}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate, type: DATE}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate, type: DATE}
+        - column: {header: version, name: version, type: NUMERIC}
+        - column: {header: inactive, name: inactive, type: BOOLEAN}
+        - column: {header: NewRefnumGeneratorId, name: NewRefnumGeneratorId}
+- changeSet:
+    id: 1549304897025-157
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: Parameters
+        separator: ','
+        quotchar: '"'
+        file: seed/parameters.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Value, name: Value, type: STRING}
+        - column: {header: Variable, name: Variable, type: STRING}
+        - column: {header: Application, name: Application}
+        - column: {header: Category, name: Category, type: STRING}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate}
+        - column: {header: ValueType, name: ValueType, type: NUMERIC}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-174
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: Product
+        separator: ','
+        quotchar: '"'
+        file: seed/product.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Name, name: Name, type: STRING}
+        - column: {header: companyId, name: companyId}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate}
+        - column: {header: Deleted, name: Deleted, type: BOOLEAN}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate}
+        - column: {header: EquivCase, name: EquivCase}
+        - column: {header: EquivLbs, name: EquivLbs}
+        - column: {header: FullPalletCases, name: FullPalletCases}
+        - column: {header: GlAcct, name: GlAcct}
+        - column: {header: HierId, name: HierId, type: NUMERIC}
+        - column: {header: IsGroup, name: IsGroup, type: BOOLEAN}
+        - column: {header: New, name: New, type: BOOLEAN}
+        - column: {header: NotDealableHigh, name: NotDealableHigh, type: BOOLEAN}
+        - column: {header: NotDealableLow, name: NotDealableLow, type: BOOLEAN}
+        - column: {header: PackCount, name: PackCount}
+        - column: {header: PackSize, name: PackSize}
+        - column: {header: ParentId, name: ParentId, type: NUMERIC}
+        - column: {header: ProductType, name: ProductType, type: NUMERIC}
+        - column: {header: RetailList, name: RetailList}
+        - column: {header: Sku, name: Sku, type: STRING}
+        - column: {header: ShipWgt, name: ShipWgt}
+        - column: {header: SlsComm, name: SlsComm}
+        - column: {header: SortField, name: SortField}
+        - column: {header: Source, name: Source}
+        - column: {header: SourceCode, name: SourceCode}
+        - column: {header: SourceId, name: SourceId, type: STRING}
+        - column: {header: StdCost, name: StdCost}
+        - column: {header: Taxable, name: Taxable, type: BOOLEAN}
+        - column: {header: UnitMsr, name: UnitMsr}
+        - column: {header: UnitPrice, name: UnitPrice, type: NUMERIC}
+        - column: {header: UpcCode, name: UpcCode}
+        - column: {header: User1, name: User1}
+        - column: {header: User2, name: User2}
+        - column: {header: User3, name: User3}
+        - column: {header: User4, name: User4}
+        - column: {header: User5, name: User5}
+        - column: {header: User6, name: User6, type: BOOLEAN}
+        - column: {header: User7, name: User7, type: BOOLEAN}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-176
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: ProductType
+        separator: ','
+        quotchar: '"'
+        file: seed/producttype.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Name, name: Name, type: STRING}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate}
+        - column: {header: IsGroup, name: IsGroup, type: BOOLEAN}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-181
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: Report
+        separator: ','
+        quotchar: '"'
+        file: seed/report.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Name, name: Name, type: STRING}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate}
+        - column: {header: FilterScreen, name: FilterScreen, type: STRING}
+        - column: {header: Inactive, name: Inactive}
+        - column: {header: filename, name: filename, type: STRING}
+        - column: {header: version, name: version, type: NUMERIC}
+        - column: {header: isSaveResult, name: isSaveResult, type: BOOLEAN}
+        - column: {header: orgId, name: orgId}
+        - column: {header: format, name: format, type: STRING}
+        - column: {header: type, name: type, type: STRING}
+        - column: {header: json, name: json}
+        - column: {header: rootDomain, name: rootDomain}
+        - column: {header: reportFilterId, name: reportFilterId}
+- changeSet:
+    id: 1549304897025-183
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: ReportFilter
+        separator: ','
+        quotchar: '"'
+        file: seed/reportfilter.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: name, name: name, type: STRING}
+        - column: {header: description, name: description}
+        - column: {header: rootDomain, name: rootDomain, type: STRING}
+        - column: {header: json, name: json, type: STRING}
+        - column: {header: version, name: version, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate}
+- changeSet:
+    id: 1549304897025-190
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: SecRole
+        separator: ','
+        quotchar: '"'
+        file: seed/secrole.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Name, name: Name, type: STRING}
+        - column: {header: Description, name: Description, type: STRING}
+        - column: {header: RoleType, name: RoleType, type: NUMERIC}
+        - column: {header: version, name: version, type: NUMERIC}
+        - column: {header: inactive, name: inactive, type: STRING}
+- changeSet:
+    id: 1549304897025-191
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: SecRoleUser
+        separator: ','
+        quotchar: '"'
+        file: seed/secroleuser.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: userId, name: userId, type: NUMERIC}
+        - column: {header: secRoleId, name: secRoleId, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-195
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: Tag
+        separator: ','
+        quotchar: '"'
+        file: seed/tag.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Name, name: Name, type: STRING}
+        - column: {header: Description, name: Description}
+        - column: {header: FieldName, name: FieldName, type: STRING}
+        - column: {header: EntityName, name: EntityName, type: STRING}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-197
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: TaskStatus
+        separator: ','
+        quotchar: '"'
+        file: seed/taskstatus.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Name, name: Name, type: STRING}
+        - column: {header: Description, name: Description}
+        - column: {header: State, name: State, type: NUMERIC}
+        - column: {header: ValidForCall, name: ValidForCall, type: BOOLEAN}
+        - column: {header: ValidForEmail, name: ValidForEmail, type: BOOLEAN}
+        - column: {header: ValidForFax, name: ValidForFax, type: BOOLEAN}
+        - column: {header: ValidForMeeting, name: ValidForMeeting, type: BOOLEAN}
+        - column: {header: ValidForParcel, name: ValidForParcel, type: BOOLEAN}
+        - column: {header: ValidForTask, name: ValidForTask, type: BOOLEAN}
+        - column: {header: ValidForSales, name: ValidForSales, type: BOOLEAN}
+        - column: {header: ValidForAr, name: ValidForAr, type: BOOLEAN}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate, type: DATE}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate, type: DATE}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-198
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: TaskType
+        separator: ','
+        quotchar: '"'
+        file: seed/tasktype.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Name, name: Name, type: STRING}
+        - column: {header: Description, name: Description}
+        - column: {header: Kind, name: Kind, type: STRING}
+        - column: {header: ValidForSales, name: ValidForSales, type: BOOLEAN}
+        - column: {header: ValidForAr, name: ValidForAr, type: BOOLEAN}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate, type: DATE}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate, type: DATE}
+        - column: {header: version, name: version, type: NUMERIC}
+- changeSet:
+    id: 1549304897025-201
+    author: SYSTEM
+    changes:
+    - loadData:
+        tableName: Users
+        separator: ','
+        quotchar: '"'
+        file: seed/users.csv
+        encoding: UTF-8
+        commentLineStartsWith: '#'
+        columns:
+        - column: {header: id, name: id, type: NUMERIC}
+        - column: {header: Name, name: Name, type: STRING}
+        - column: {header: CreatedBy, name: CreatedBy, type: NUMERIC}
+        - column: {header: CreatedDate, name: CreatedDate, type: DATE}
+        - column: {header: EditedBy, name: EditedBy, type: NUMERIC}
+        - column: {header: EditedDate, name: EditedDate, type: DATE}
+        - column: {header: Email, name: Email, type: STRING}
+        - column: {header: Inactive, name: Inactive, type: BOOLEAN}
+        - column: {header: IsOwner, name: IsOwner, type: BOOLEAN}
+        - column: {header: Login, name: Login, type: STRING}
+        - column: {header: ManagerId, name: ManagerId, type: NUMERIC}
+        - column: {header: MustChangePassword, name: MustChangePassword, type: BOOLEAN}
+        - column: {header: Password, name: Password, type: STRING}
+        - column: {header: PasswordChangedDate, name: PasswordChangedDate, type: DATE}
+        - column: {header: contactId, name: contactId, type: NUMERIC}
+        - column: {header: version, name: version, type: NUMERIC}
+        - column: {header: resetPasswordToken, name: resetPasswordToken}
+        - column: {header: resetPasswordDate, name: resetPasswordDate}

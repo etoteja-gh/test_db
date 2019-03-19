@@ -1,0 +1,8 @@
+"id","code","name","kind","glAcct","sourceId","inactive","invisible","isSystem","writeOffArReasonId","createdBy","createdDate","editedBy","editedDate","version"
+"1","Memo","Memo","Memo","NULL","Memo","false","false","true","10","1","2019-02-04T12:23:58.000","NULL","NULL","0"
+"2","Item","Item","Item","NULL","Item","false","false","true","10","1","2019-02-04T12:23:58.000","NULL","NULL","0"
+"5","Tax","Tax","Tax","NULL","Tax","false","false","true","3","1","2019-02-04T12:23:58.000","NULL","NULL","0"
+"7","Discount","Discount","Discount","NULL","Discount","false","false","true","10","1","2019-02-04T12:23:58.000","NULL","NULL","0"
+"8","Journal","Journal","Journal","NULL","Journal","false","false","true","10","1","2019-02-04T12:23:58.000","NULL","NULL","0"
+"9","Comments","Comments","Comments","NULL","Comments","false","false","true","NULL","1","2019-02-04T12:23:58.000","NULL","NULL","0"
+"10","Balancing","Balancing","Memo","9999","NULL","false","false","false","NULL","NULL","NULL","NULL","NULL","0"

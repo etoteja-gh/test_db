@@ -1,0 +1,3 @@
+"id","AccountName","AccountNum","BankName","CreatedBy","CreatedDate","EditedBy","EditedDate","custId","RoutingNum","Source","SourceId","User1","version","orgId"
+"1","NULL","222","NULL","107","2008-04-08T02:36:00.000","107","2008-04-08T02:36:00.000","205","111","NULL","NULL","NULL","0","1"
+"2","NULL","1234","NULL","107","2008-04-08T02:36:31.000","107","2008-04-08T02:36:31.000","214","NULL","NULL","NULL","NULL","0","1"

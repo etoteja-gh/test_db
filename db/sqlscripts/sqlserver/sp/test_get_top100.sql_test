@@ -1,0 +1,34 @@
+CREATE procedure test_get_top100 as
+
+/*script eliminates data to have only up to 100 records in each table. */
+
+DECLARE tableName_cursor CURSOR FOR
+SELECT name FROM dbo.sysobjects
+ WHERE xtype = 'U'  --U - user types 
+and 
+ exists (select * from syscolumns
+  where id=object_id(sysobjects.name)and name='OID') 
+
+DECLARE @tableName varchar(100)
+DECLARE @delete varchar(500)
+DECLARE @update varchar(500)
+
+OPEN tableName_cursor
+
+fetch next from tableName_cursor into @tableName  while @@FETCH_STATUS = 0 begin
+
+
+set @delete='Delete from '+@tableName +' where oid not in (
+SELECT TOP 100 OID FROM ' + @tableName +')'
+
+exec(@delete)
+
+fetch next from tableName_cursor into @tableName end
+
+close tableName_cursor
+deallocate tableName_cursor;
+
+
+
+
+GO

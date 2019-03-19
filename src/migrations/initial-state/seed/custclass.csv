@@ -1,0 +1,4 @@
+"id","Name","acDiscountGroupId","acMatchGroupId","acMemoGroupId","acOffsetGroupId","CreatedBy","CreatedDate","Description","EditedBy","EditedDate","Source","SourceId","ValidFor","version"
+"1","Risk1","NULL","NULL","NULL","NULL","107","2004-06-03T17:47:00.000","Risk1","107","2004-06-03T17:47:00.000","NULL","NULL","NULL","0"
+"2","Risk2","NULL","NULL","NULL","NULL","107","2004-06-03T17:47:00.000","Risk2","107","2004-06-03T17:47:00.000","NULL","NULL","NULL","0"
+"3","Risk3","NULL","NULL","NULL","NULL","107","2004-06-03T17:47:00.000","Risk3","107","2004-06-03T17:47:00.000","NULL","NULL","NULL","0"

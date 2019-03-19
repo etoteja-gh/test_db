@@ -1,0 +1,37 @@
+
+task 'create-db'{
+  URLClassLoader loader = groovy.sql.Sql.class.classLoader
+  project.buildscript.configurations.classpath.each { File file ->
+    loader.addURL(file.toURL())
+  }
+
+  doLast {
+    def props = [user: dbprops.user, password: dbprops.password, allowMultiQueries: 'true']
+    def sql = groovy.sql.Sql.newInstance(dbprops.baseUrl, props as Properties, dbprops.driver)
+    String stmt
+    if(dbms == 'mysql') {
+      stmt = """
+        use mysql;
+        drop database if exists ${dbprops.name};
+        create database IF NOT EXISTS ${dbprops.name};
+      """.toString()
+    } else if (dbms == 'mssql'){
+      stmt = """
+        use tempdb;
+
+        if db_id(\'${dbprops.name}\') is not null
+        BEGIN
+        Alter database ${dbprops.name} set single_user with rollback immediate;
+        drop database ${dbprops.name};
+        END
+
+        create database ${dbprops.name};
+        alter database ${dbprops.name} set recovery simple, auto_shrink off;
+
+      """.toString()
+    }
+    //println stmt
+
+    sql.execute stmt
+  }
+}

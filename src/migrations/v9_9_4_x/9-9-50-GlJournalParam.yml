@@ -1,0 +1,24 @@
+databaseChangeLog:
+- changeSet:
+    id: 9-9-50-GlJournalParam.01
+    author: Joanna
+    changes:
+    - createTable:
+        tableName: GlJournalParam
+        columns:
+        - column:
+            constraints: {nullable: false}
+            name: id
+            type: BIGINT
+        - column:
+            constraints: {nullable: false}
+            defaultValueNumeric: 0
+            name: version
+            type: BIGINT
+        - column:
+            name: glAcct
+            type: VARCHAR(100)
+        - column:
+            defaultValueNumeric: 0
+            name: isSummarized
+            type: BIT

@@ -1,0 +1,6 @@
+"Id","CreatedDate","DocDate","DocDateEx","Amount","AmountEx","DiscAmount","DiscAmountEx","MergedDate","PayAmount","PayAmountEx","ReasonCode","ReasonCodeEx","RefNum","RefNumEx","PaymentsApiSourceId","PaymentId","RecordNum","SourceId"
+"1","2008-06-30T17:53:32.000","2008-06-27T15:02:47.000","NULL","20.000000","NULL","2.000000","NULL","NULL","18.000000","NULL","NULL","NULL","pd paymentApi1 Posted","NULL","paymentapi1","901","1","pd paymentapi1"
+"2","2008-06-30T17:53:32.000","2008-06-27T15:02:47.000","NULL","20.000000","NULL","0.000000","NULL","NULL","20.000000","NULL","NULL","NULL","pd paymentApi2 missing cust","NULL","paymentapi2","902","2","pd paymentapi2"
+"3","2008-06-30T17:53:32.000","2008-06-27T15:02:47.000","NULL","20.000000","NULL","1.000000","NULL","NULL","19.000000","NULL","NULL","NULL","pd paymentApi3 good cust","NULL","paymentapi3","903","3","pd paymentapi3"
+"4","2008-06-30T17:53:32.000","2008-06-27T15:02:47.000","NULL","20.000000","NULL","0.000000","NULL","NULL","20.000000","NULL","NULL","NULL","pd paymentApi4 reconciled","NULL","paymentapi4","904","4","pd paymentapi4"
+"5","2008-06-30T17:53:32.000","2008-06-27T15:02:47.000","NULL","20.000000","NULL","2.000000","NULL","NULL","18.000000","NULL","NULL","NULL","pd paymentApi5 good cust with payDetail","NULL","paymentapi5","905","5","pd paymentapi5"

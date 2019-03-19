@@ -1,0 +1,4 @@
+"id","name","num","orgTypeId","companyId","calcId","comments","infoId","flexId","orgSourceId","createdBy","createdDate","editedBy","editedDate","version","locationId","rootOrgId","memberId","inactive"
+"1","Company","001","9","2","NULL","Main Company","1","NULL","NULL","1","2012-11-14T16:39:07.000","1","2012-11-14T16:39:07.000","0","1","NULL","NULL","false"
+"2","Main Company","Main","6","2","NULL","NULL","NULL","NULL","NULL","NULL","NULL","NULL","NULL","0","NULL","NULL","NULL","false"
+"5","Bad Debt Company","BD","6","5","NULL","NULL","NULL","NULL","NULL","NULL","NULL","NULL","NULL","0","NULL","NULL","NULL","false"

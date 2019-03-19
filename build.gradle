@@ -1,0 +1,269 @@
+import org.yaml.snakeyaml.Yaml
+import org.yaml.snakeyaml.DumperOptions
+import org.yaml.snakeyaml.emitter.Emitter
+import org.liquibase.gradle.LiquibaseTask
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.liquibase:liquibase-core:3.5.5'
+        //classpath name: 'liquibase-mssql-1.3.2'
+        classpath 'mysql:mysql-connector-java:5.1.36'
+        classpath 'com.microsoft.sqlserver:mssql-jdbc:6.2.2.jre8'
+    }
+}
+plugins {
+  id 'org.liquibase.gradle' version '1.2.4'
+}
+apply plugin:"groovy"
+
+/***** setup props *******/
+ext {
+  mysql = [
+    baseUrl: 'jdbc:mysql://127.0.0.1/',
+    user: 'root',
+    driver: 'com.mysql.jdbc.Driver'
+  ]
+  mssql = [
+    baseUrl: 'jdbc:sqlserver://localhost:1433;',
+    namePrefix:'databaseName=',
+    user: 'sa',
+    driver: 'com.microsoft.sqlserver.jdbc.SQLServerDriver',
+    urlPostfix: ';'
+  ]
+  dbprops = [:]
+  migrationsDir = 'src/migrations'
+  initialDir = 'src/migrations/initial-state'
+  initial= [
+    dbPrefix: 'init9',
+    buildDir: "build/initial-state"
+  ]
+  lbExportDir = "build/snapshot"
+  autoIncrementList = []
+}
+
+defProp 'env', 'test'
+println "Environment set to -> $env"
+
+if(!hasProperty('dbms')) {
+    defProp 'dbms', System.properties['BMS'] ?: 'mysql'
+}
+
+defProp 'dbPrefix', 'rcm_9ci'
+
+if(!hasProperty('db')) {
+    defProp 'db', System.properties['B'] ?: "${dbPrefix}_${env}"
+}
+
+dbprops = ext["dbprops"] << ext[dbms]
+dbprops.name = db
+dbprops.url = "${dbprops.baseUrl}${dbprops.namePrefix?:''}${dbprops.name}${dbprops.urlPostfix?:''}"
+dbprops.password = ext.db_password
+
+/****** end props setup ********/
+
+apply from: "$rootDir/gradle/db.gradle"
+
+println dbprops
+
+liquibase {
+  activities {
+    runner {
+      logLevel logLevel
+      contexts env
+      url dbprops.url
+      driver dbprops.driver
+      username dbprops.user
+      password dbprops.password
+    }
+  }
+  runList = project.ext.has('runList') ? project.ext['runList'] : null
+}
+
+task 'export-data'(type : LiquibaseTask) {
+  description 'creates load data for seed, test or dev based on the $env property'
+  command "generateChangelog"
+  doFirst {
+    delete "${initial.buildDir}/loadData-${env}.yml"
+    file("${initial.buildDir}").mkdirs()
+    def args = setupRunnerArgs()
+    args.changeLogFile = "${initial.buildDir}/loadData-${env}.yml"
+    args.diffTypes = 'data'
+    args.dataOutputDirectory = "${initial.buildDir}/$env"
+  }
+  doLast {
+    dataYamlCleanup(initial.buildDir, "loadData-${env}.yml")
+  }
+}
+
+task 'export-schema'(type : LiquibaseTask) {
+  command "generateChangelog"
+  doFirst {
+    delete "${initial.buildDir}/schema.yml"
+    file(lbExportDir).mkdirs()
+    def args = setupRunnerArgs()
+    args.changeLogFile = "${initial.buildDir}/schema.yml"
+    args.classpath = initialDir
+  }
+  doLast {
+    schemaYamlCleanup(initial.buildDir, "schema.yml")
+  }
+}
+
+task 'init-db'(type : LiquibaseTask) {
+  shouldRunAfter "create-db"
+  command "update"
+  doFirst {
+    def args = project.liquibase.activities.find { it.name == 'runner' }.arguments
+    args.contexts = env
+    args.url = dbprops.url
+    args.changeLogFile = 'build.yml'
+    args.classpath = initialDir
+    project.liquibase.runList = 'runner'
+  }
+}
+
+task migrations(type : LiquibaseTask) {
+  shouldRunAfter 'init-db'
+  command "update"
+  doFirst {
+    def args = project.liquibase.activities.find { it.name == 'runner' }.arguments
+    args.contexts = env
+    args.url = dbprops.url
+    args.changeLogFile = 'changelog.yml'
+    args.classpath = migrationsDir
+    project.liquibase.runList = 'runner'
+  }
+}
+
+task 'db-create'(dependsOn : ['create-db', 'init-db', 'migrations'])
+
+
+def setupRunnerArgs(){
+  def args = project.liquibase.activities.find { it.name == 'runner' }.arguments
+  project.liquibase.runList = 'runner'
+  return args
+}
+
+def schemaYamlCleanup(String workdir, String name){
+  def fullName = "$workdir/$name"
+  def yml = loadYaml(fullName)
+  moveToBak(workdir, name)
+
+  ext.autoIncrementList.clear()
+  yml.databaseChangeLog.each{ cset ->
+    cset.changeSet.author = "SYSTEM"
+    cset.changeSet.changes.each{ ld ->
+      //fix TIMESTAMP(19) for date defaults
+      if(ld.createTable?.columns){
+        ld.createTable.columns.each { col ->
+          if(col.column.type == "TIMESTAMP(19)") col.column.type = 'TIMESTAMP'
+          if(col.column.type == 'LONGTEXT') col.column.type = 'TEXT'
+          if(col.column.autoIncrement) ext.autoIncrementList << ld.createTable.tableName
+        }
+        ld.createTable = ld.createTable.sort { a, b -> b.key <=> a.key }
+      }
+      //fix primary key name to be unique
+      if(ld.addPrimaryKey?.constraintName == 'PRIMARY'){
+        ld.addPrimaryKey.constraintName = 'PK_' + ld.addPrimaryKey.tableName
+      }
+    }
+  }
+  saveYaml(fullName, yml)
+}
+
+def dataYamlCleanup(String workdir, String name){
+  def fullName = "$workdir/$name"
+  def yml = loadYaml(fullName)
+  moveToBak(workdir, name)
+
+  genAutoIncrementList(workdir, 'schema.yml')
+
+  List emptyCsvList = []
+
+  yml.databaseChangeLog.each{ cset ->
+    cset.changeSet.author = "SYSTEM"
+    List changes = cset.changeSet.changes
+
+    String identInsertTable //so we can do the set ident off or on for sql server
+    boolean emptyCsv //if csv is empty then remove changelog
+
+    changes.each{ Map ld ->
+      //sort so table is on top
+      if(ld['loadData']){
+        emptyCsv = checkForEmptyCsv(ld.loadData.file)
+        if(!emptyCsv){
+          identInsertTable = ext.autoIncrementList.contains(ld.loadData.tableName) ? ld.loadData.tableName : null
+          ld.loadData.file = ld.loadData.file.replace(workdir + '/', '')
+          ld.loadData = ld.loadData.sort { a, b -> b.key <=> a.key }
+        }
+      }
+    }
+    if(identInsertTable){
+      String sqlCmd = "SET IDENTITY_INSERT $identInsertTable"
+      changes.add(0,[
+        sql:[ dbms: 'mssql', sql: "$sqlCmd ON".toString()]
+      ])
+      changes.add([
+        sql:[ dbms: 'mssql', sql: "$sqlCmd OFF".toString()]
+      ])
+    }
+    if(emptyCsv)emptyCsvList.add(cset)
+
+  }
+  yml.databaseChangeLog.removeAll(emptyCsvList)
+  saveYaml(fullName, yml)
+}
+
+def genAutoIncrementList(String workdir, String name){
+  def fullName = "$workdir/$name"
+  def yml = loadYaml(fullName)
+  ext.autoIncrementList.clear()
+  yml.databaseChangeLog.each{ cset ->
+    cset.changeSet.changes.each{ ld ->
+      ld.createTable?.columns.each { col ->
+          if(col.column.autoIncrement) ext.autoIncrementList << ld.createTable.tableName
+        }
+    }
+  }
+}
+
+def checkForEmptyCsv(String csvFile){
+  def lines = file(csvFile).readLines()
+  if(lines.size() == 1 || (lines.size() == 2 && !lines[1].trim()) ){
+    file(csvFile).delete()
+    return true
+  }
+  return false
+
+}
+
+def loadYaml(String filename){
+  Yaml yaml = new Yaml()
+  yaml.load(new FileInputStream(file(filename)))
+}
+
+def saveYaml(String filename, yml){
+  DumperOptions dops = new DumperOptions()
+  dops.setIndent(2)
+  dops.setWidth(120)
+  Yaml yaml = new Yaml(dops)
+  file(filename).text = yaml.dump(yml)
+}
+
+def moveToBak(String workdir, String fname){
+  copy{
+    into 'build/bak'
+    from workdir
+    include fname
+  }
+  delete fileTree(dir:workdir, include: fname)
+}
+
+def defProp(String propertyName, defaultValue) {
+  if(!hasProperty(propertyName)) {
+    ext[propertyName] = defaultValue
+  }
+}

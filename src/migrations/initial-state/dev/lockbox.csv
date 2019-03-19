@@ -1,0 +1,6 @@
+"id","ArSystem","AccountType","ArTranTypeId","BankName","BankNumber","CreatedBy","CreatedDate","EditedBy","EditedDate","Location","LockBoxNumber","User1","User2","User3","User4","User5","version","User6","orgId"
+"1000","NULL","NULL","NULL","Chase","123456789","107","2010-12-02T23:45:23.000","107","2010-12-02T23:45:23.000","NULL","LB456","NULL","NULL","NULL","NULL","NULL","0","NULL","2"
+"1001","NULL","NULL","NULL","Chase Canada","567845678","107","2010-12-02T23:45:52.000","107","2010-12-02T23:45:52.000","NULL","Canada","NULL","NULL","NULL","NULL","NULL","0","NULL","2"
+"1002","NULL","NULL","NULL","Mellon","567789876","107","2010-12-02T23:46:16.000","107","2010-12-02T23:46:16.000","NULL","Mellon","NULL","NULL","NULL","NULL","NULL","0","NULL","2"
+"1003","NULL","NULL","NULL","DEVELOPMENT","123456","107","NULL","107","NULL","NULL","1","NULL","NULL","NULL","NULL","NULL","0","NULL","2"
+"1004","NULL","NULL","NULL","DEVELOPMENT","123456","107","NULL","107","NULL","NULL","MORG","NULL","NULL","NULL","NULL","NULL","0","NULL","2"

@@ -1,0 +1,153 @@
+"id","CreatedBy","CreatedDate","Data","EditedBy","EditedDate","version"
+"10","50","2009-07-07T09:51:58.000","<p style=\"margin-left: 400px;\">${(company.name)!}</p>
+<p style=\"margin-left: 400px;\">${(company.address)!}</p>
+<p style=\"margin-left: 400px;\">Phone: ${(company.phone)!}</p>
+<p style=\"margin-left: 400px;\">Email: ${(company.defaultPerson.email)!}</p>
+<p style=\"margin-left: 400px;\">&nbsp;</p>
+<p>${(customer.name)!}</p>
+<p>${(customer.address)!}</p>
+<p>Accounts Payable, ${(person.name)!}</p>
+<p>Re:  ${attachment.subject}</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Dear Accounts Payable,</p>
+<p>Your account is overdue in the amount of ${(company.calc.overDue)!}.  We must receive payment immediately in order to keep your account in good standing.  Failure to pay your past due balance can adversely affect your credit rating.</p>
+<p><#if (pastDueInvoiceList?size>0)></p>
+<p>Overdue:</p>
+<p><@pastDueList columns=[\"refNum\",\"poNum\",\"dueDate\",\"daysOld\",\"amount\"] invoiceList=pastDueInvoiceList /></p>
+</#if>
+<p><#if (notDueYetInvoiceList?size>0)></p>
+<p>As well, the following items are not yet due, but you may wish to pay them in advance:</p>
+<p><@notDueYetList columns=[\"refNum\",\"poNum\",\"dueDate\",\"daysOld\",\"amount\"] invoiceList=notDueYetInvoiceList /></p>
+</#if>
+<p>If payment has already been sent, please accept our thanks for payment and disregard this reminder.  Otherwise, please pay as soon as possible at <a href=\"https://${company.sourceId}.greenbill.com\">https://${company.sourceId}.greenbill.com</a> or over-night your payment to us by conventional means.</p>
+<p>Additional charges to your account can be avoided by issuing your payment today.</p>
+<p>Sincerely,</p>
+<p>${(company.defaultPerson.name)!}</p>
+<p>&nbsp;</p>","50","2009-12-30T15:18:51.000","3"
+"11","50","2009-07-07T09:51:58.000","<p style=\"margin-left: 400px;\">${(company.name)!}</p>
+<p style=\"margin-left: 400px;\">${(company.address)!}</p>
+<p style=\"margin-left: 400px;\">Phone: ${(company.phone)!}</p>
+<p style=\"margin-left: 400px;\">Email: ${(company.defaultPerson.email)!}</p>
+<p style=\"margin-left: 400px;\">&nbsp;</p>
+<p>${(customer.name)!}</p>
+<p>${(customer.address)!}</p>
+<p>Accounts Payable, ${(person.name)!}</p>
+<p>Re:  ${attachment.subject}</p>
+<p>&nbsp;</p>
+<p>Dear Accounts Payable,</p>
+<p>The invoice referenced below is now overdue.&nbsp; It seems you may have forgotten to send the payment.&nbsp; Please pay the overdue balance of&nbsp;${(company.calc.overDue)!} at your earliest convenience.&nbsp; We appreciate your business and anticipate receipt of your payment.</p>
+<p><#if (pastDueInvoiceList?size>0)></p>
+<p>Overdue:</p>
+<p><@pastDueList columns=[\"refNum\",\"poNum\",\"dueDate\",\"daysOld\",\"amount\"] invoiceList=pastDueInvoiceList /></p>
+</#if>
+<p><#if (notDueYetInvoiceList?size>0)></p>
+<p>As well, the following items are not yet due, but you may wish to pay them in advance:</p>
+<p><@notDueYetList columns=[\"refNum\",\"poNum\",\"dueDate\",\"daysOld\",\"amount\"] invoiceList=notDueYetInvoiceList /></p>
+</#if>
+<p>We appreciate your business. If payment has already been sent please disregard this reminder.</p>
+<p>You can pay your account balances online at <a href=\"https://${company.sourceId}.greenbill.com\">https://${company.sourceId}.greenbill.com</a> or mail your payment to us by conventional means to the address at the top of this page.</p>
+<p>Sincerely,</p>
+<p>${(company.defaultPerson.name)!}</p>
+<p>&nbsp;</p>","50","2009-12-30T15:06:54.000","3"
+"12","50","2009-07-07T09:51:58.000","<p style=\"margin-left: 400px;\">${(company.name)!}</p>
+<p style=\"margin-left: 400px;\">${(company.address)!}</p>
+<p style=\"margin-left: 400px;\">Phone: ${(company.phone)!}</p>
+<p style=\"margin-left: 400px;\">Email: ${(company.defaultPerson.email)!}</p>
+<p style=\"margin-left: 400px;\">&nbsp;</p>
+<p style=\"margin-left: 400px;\">&nbsp;</p>
+<p>${(customer.name)!}</p>
+<p>${(customer.address)!}</p>
+<p>Accounts Payable, ${(person.name)!}</p>
+<p>Re:  ${(attachment.subject)!}</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Dear Accounts Payable,</p>
+<p>Your account is considerably past due.  Your past due amount is ${(customer.calc.overDue)!} and your total amount due is ${(customer.calc.totalDue)!}.  We are concerned because we have not heard from you despite our previous invoicing, statements and letters.  We must receive payment immediately in order to keep your account in good standing.  Failure to pay will adversely affect your credit rating and may result in legal action.</p>
+<p><#if (pastDueInvoiceList?size>0)></p>
+<p>Overdue:</p>
+<p><@pastDueList columns=[\"refNum\",\"poNum\",\"dueDate\",\"daysOld\",\"amount\"] invoiceList=pastDueInvoiceList /></p>
+</#if>
+<p><#if (notDueYetInvoiceList?size>0)></p>
+<p>As well, the following items are not yet due, but you may wish to pay them in advance:</p>
+<p><@notDueYetList columns=[\"refNum\",\"poNum\",\"dueDate\",\"daysOld\",\"amount\"] invoiceList=notDueYetInvoiceList /></p>
+</#if>
+<p>If payment has already been sent, please accept our thanks for payment and disregard this reminder.  Otherwise, please pay as soon as possible at <a href=\"https://${(company.sourceId)!}.greenbill.com\">https://${(company.sourceId)!}.greenbill.com</a> or over-night your payment to us by conventional means.</p>
+<p>Additional charges to your account can be avoided by issuing your payment today.</p>
+<p>Sincerely,</p>
+<p>${(company.defaultPerson.name)!}</p>
+<p>&nbsp;</p>","50","2009-12-30T15:18:16.000","7"
+"13","50","2009-09-23T23:58:37.000","<p style=\"margin-left: 400px;\">${(company.name)!}</p>
+<p style=\"margin-left: 400px;\">${(company.address)!}</p>
+<p style=\"margin-left: 400px;\">Phone: ${(company.phone)!}</p>
+<p style=\"margin-left: 400px;\">Email: ${(company.defaultPerson.email)!}</p>
+<p style=\"margin-left: 400px;\">&nbsp;</p>
+<p>${(customer.name)!}</p>
+<p>${(customer.address)!}</p>
+<p>Accounts Payable, ${(person.name)!}</p>
+<p>Re:  ${attachment.subject}</p>
+<p>&nbsp;</p>
+<p>Accounts Payable,</p>
+<p>We have not received full payment totaling ${(company.calc.totalDue)!}.  This is your total balance including interest and late charges calculated through today's date.  You have received several reminders that your account is considerably overdue, and we are extremely concerned that we have not heard back from you.  Interest charges and late fees will continue to accrue, and your account has been suspended.</p>
+<p>The matter is now extremely urgent.  Your invoice will be placed in collection if you have not paid your past due amount within 15 days of your receipt of this message.  Further inaction will jeopardize your credit rating.  Our policy dictates that we send seriously delinquent accounts to our collection agency.  If necessary, we may pursue legal avenues to reconcile this debt.</p>
+<p><#if (pastDueInvoiceList?size>0)></p>
+<p>Overdue:</p>
+<p><@pastDueList columns=[\"refNum\",\"poNum\",\"dueDate\",\"daysOld\",\"amount\"] invoiceList=pastDueInvoiceList /></p>
+</#if>
+<p>If payment has already been sent, please disregard this notice.  Otherwise, please pay immediately at <a href=\"https://${company.sourceId}.greenbill.com\">https://${company.sourceId}.greenbill.com</a> or over-night your payment to us by conventional means.</p>
+<p>Additional charges to your account, adverse credit reports and legal action can be avoided by issuing your payment today.</p>
+<p>Sincerely,</p>
+<p>${(company.defaultPerson.name)!}</p>
+<p>&nbsp;</p>","50","2009-12-30T15:18:30.000","3"
+"14","50","2009-07-07T09:51:58.000","<p style=\"margin-left: 400px;\">${(company.name)!}</p>
+<p style=\"margin-left: 400px;\">${(company.address)!}</p>
+<p style=\"margin-left: 400px;\">Phone: ${(company.phone)!}</p>
+<p style=\"margin-left: 400px;\">Email: ${(company.defaultPerson.email)!}</p>
+<p style=\"margin-left: 400px;\">&nbsp;</p>
+<p>${(customer.name)!}</p>
+<p>${(customer.address)!}</p>
+<p>Accounts Payable, ${(person.name)!}</p>
+<p>Re:  ${attachment.subject}</p>
+<p>&nbsp;</p>
+<p>Accounts Payable,</p>
+<p>We have not received full payment totaling ${customer.calc.totalDue}.  This is your total balance including interest and late charges calculated through today's date.  You have received several reminders that your account is considerably overdue, and we are extremely concerned that we have not heard back from you.  Interest charges and late fees will continue to accrue, and your account has been suspended.</p>
+<p>The matter is now extremely urgent.  Your invoice will be placed in collection if you have not paid your past due amount within 10 days of your receipt of this message.  Further inaction will jeopardize your credit rating.  Our policy dictates that we send seriously delinquent accounts to our collection agency.  If necessary, we may pursue legal avenues to reconcile this debt.</p>
+<p><#if (pastDueInvoiceList?size>0)></p>
+<p>Overdue:</p>
+<p><@pastDueList columns=[\"refNum\",\"poNum\",\"dueDate\",\"daysOld\",\"amount\"] invoiceList=pastDueInvoiceList /></p>
+</#if>
+<p><#if (notDueYetInvoiceList?size>0)></p>
+<p>Other balances:</p>
+<p><@notDueYetList columns=[\"refNum\",\"poNum\",\"dueDate\",\"daysOld\",\"amount\"] invoiceList=notDueYetInvoiceList /></p>
+</#if>
+<p>If payment has already been sent, please disregard this notice.  Otherwise, please pay immediately at <a href=\"https://${company.sourceId}.greenbill.com\">https://${company.sourceId}.greenbill.com</a> or over-night your payment to us by conventional means.</p>
+<p>Additional charges to your account, adverse credit reports and legal action can be avoided by issuing your payment today.</p>
+<p>Sincerely,</p>
+<p>${(company.defaultPerson.name)!}</p>
+<p>&nbsp;</p>","50","2009-12-30T14:55:44.000","4"
+"15","50","2009-07-07T09:51:58.000","<p style=\"margin-left: 400px;\">${(company.name)!}</p>
+<p style=\"margin-left: 400px;\">${(company.address)!}</p>
+<p style=\"margin-left: 400px;\">Phone: ${(company.phone)!}</p>
+<p style=\"margin-left: 400px;\">Email: ${(company.defaultPerson.email)!}</p>
+<p style=\"margin-left: 400px;\">&nbsp;</p>
+<p>${(customer.name)!}</p>
+<p>${(customer.address)!}</p>
+<p>Accounts Payable, ${(person.name)!}</p>
+<p>Re:  ${attachment.subject}</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Accounts Payable,</p>
+<p>Your past-due invoice(s) have been placed in collection due to your failure to pay the past due amount of ${(company.calc.overDue)!}. Further inaction will jeopardize your credit rating and may result in legal action.  Your organization is no longer able to place orders with us, and will remain so until you have paid your overdue amount.</p>
+<p><#if (pastDueInvoiceList?size>0)></p>
+<p>Overdue:</p>
+<p><@pastDueList columns=[\"refNum\",\"poNum\",\"dueDate\",\"daysOld\",\"amount\"] invoiceList=pastDueInvoiceList /></p>
+</#if>
+<p><#if (notDueYetInvoiceList?size>0)></p>
+<p>Other balances:</p>
+<p><@notDueYetList columns=[\"refNum\",\"poNum\",\"dueDate\",\"daysOld\",\"amount\"] invoiceList=notDueYetInvoiceList /></p>
+</#if>
+<p>If payment has already been sent, please disregard this notice.  Otherwise, please pay immediately at <a href=\"https://${company.sourceId}.greenbill.com\">https://${company.sourceId}.greenbill.com</a> or over-night your payment to us by conventional means.</p>
+<p>Additional charges to your account, adverse credit reports and legal action can be avoided by issuing your payment today.</p>
+<p>Sincerely,</p>
+<p>${(company.defaultPerson.name)!}</p>
+<p>&nbsp;</p>","50","2009-12-30T15:16:10.000","2"

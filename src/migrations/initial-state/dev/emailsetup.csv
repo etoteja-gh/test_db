@@ -1,0 +1,2 @@
+"id","useCompanyServer","useSsl","authtype","smtpHost","smtpPort","smtpLogin","smtpPassword","bcc","smtpSendEmail","smtpSendName","smtpReplyTo","companyId","CreatedBy","CreatedDate","EditedBy","EditedDate","version"
+"210","false","false","Password","smtp.yourcompany.comz","465","","","billing-sent@yourcompany.comz","billing@yourcompany.comz","Accounts Receivable","billing@yourcompany.comz","NULL","0","NULL","0","NULL","0"

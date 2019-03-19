@@ -1,0 +1,6 @@
+"id","CompanyId","CreatedBy","CreatedDate","EditedBy","EditedDate","Description","KeyName","NextId","Prefix","RangeMax","RangeMin","Suffix","version"
+"-400","NULL","0","NULL","0","NULL","Used in ARTranTypeDaoIntTest.testNewRefNumRollBack()","TESTFailRollBack","4000000","","4999999","4000000","","0"
+"-300","NULL","0","NULL","0","NULL","Used in ArDocDaoIntTest.testInsertArdoc()","TESTArDocDao.insertArDoc","3000000","","3999999","3000000","","0"
+"-200","NULL","0","NULL","0","NULL","Used in ArTranTypeDaoIntTest.testGetNewTranTypeSequenceNumber","TESTArTranTypeDao2","2000000","GHI","2999999","2000000","JKL","0"
+"-100","NULL","0","NULL","0","NULL","Used in ArTranTypeDaoIntTest.testGetNewTranTypeSequenceNumber","TESTArTranTypeDao1","1000000","ABC","1999999","1000000","DEF","0"
+"1","NULL","0","NULL","0","NULL","Default row for normal accounts","Generic","1000","DCS","1073741824","1000","NULL","0"
