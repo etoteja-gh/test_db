@@ -94,7 +94,7 @@ jobs:
 
     steps:
       - checkout
-
+      - run: chown -R $USER:$USER root/
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -110,7 +110,6 @@ jobs:
 
       # run dev!
       # - run: gradle clean; gradle gorm-tools:check --no-daemon --max-workers 2
-      - run: chown -R $USER:$USER root/
       - run: ./ci-scripts/dbcreate.sh test
 
       - setup_remote_docker
