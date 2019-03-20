@@ -41,6 +41,7 @@ jobs:
           keys:
           - v1-dependencies-{{ checksum "build.gradle" }}
 
+ 
       - run: gradle buildEnvironment
 
       - save_cache:
@@ -55,8 +56,10 @@ jobs:
 
       # run tests!
       # - run: gradle clean; gradle gorm-tools:check --no-daemon --max-workers 2
+      
       - run: ./ci-scripts/dbcreate.sh test
 
+      - run: apk add docker-ce
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
       - run: docker build -t $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG .
