@@ -5,10 +5,6 @@
 version: 2
 jobs:
   build:
-    # branches:
-    #   only:
-    #   - master
-
     docker:
       - image: $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG
         auth:
@@ -59,9 +55,6 @@ jobs:
       # run tests!
       # - run: gradle clean; gradle gorm-tools:check --no-daemon --max-workers 2
       - run: ./ci-scripts/dbcreate.sh test
-
-
-     - run: bash scripts/generate.sh > Dockerfile
 
      - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
