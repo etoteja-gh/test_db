@@ -112,11 +112,13 @@ jobs:
       # - run: gradle clean; gradle gorm-tools:check --no-daemon --max-workers 2
       - run: ./ci-scripts/dbcreate.sh test
 
-      # - setup_remote_docker:
+      - setup_remote_docker
       #     docker_layer_caching: true
       - run:
           name: Build and push Docker image
           command: |
+              set -x
+              sudo apt-get install docker-ce=17.03.2~ce-0~ubuntu-xenial
               docker build -t $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG .
               docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD
               docker push "${DOCKER_REPOSITORY}:${DOCKER_REPOSITORY_TAG}"
