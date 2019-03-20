@@ -69,7 +69,8 @@ jobs:
 
   push_docker:
     docker:
-      - image: circleci/buildpack-deps:stretch
+      # - image: circleci/buildpack-deps:stretch
+      - image: docker:17.05.0-ce-git
       # 9ci's grails docker with mysql client, this is where all the steps are run
       - image: dock9/oraclejdk8:gradle-3.5.1
 
@@ -94,23 +95,22 @@ jobs:
 
     steps:
       - checkout
-      - run: chown -R $USER:$USER /root
       # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "build.gradle" }}
+      # - restore_cache:
+      #     keys:
+      #       - v1-dependencies-{{ checksum "build.gradle" }}
 
-      - run: gradle buildEnvironment
+      # - run: gradle buildEnvironment
 
-      - save_cache:
-          paths:
-            - ~/.m2
-            - ~/.gradle
-          key: v1-dependencies-{{ checksum "build.gradle" }}
+      # - save_cache:
+      #     paths:
+      #       - ~/.m2
+      #       - ~/.gradle
+      #     key: v1-dependencies-{{ checksum "build.gradle" }}
 
-      # run dev!
-      # - run: gradle clean; gradle gorm-tools:check --no-daemon --max-workers 2
-      - run: ./ci-scripts/dbcreate.sh test
+      # # run dev!
+      # # - run: gradle clean; gradle gorm-tools:check --no-daemon --max-workers 2
+      # - run: ./ci-scripts/dbcreate.sh test
 
       - setup_remote_docker
       #     docker_layer_caching: true
