@@ -91,43 +91,43 @@ jobs:
   #         SA_PASSWORD: 999Foobar
   #         ACCEPT_EULA: Y
 
-    environment:
-      JVM_OPTS: -Xmx3200m
-      MALLOC_ARENA_MAX: 2
-      #GRADLE_OPTS: "-Xmx2048m -Dorg.gradle.daemon=false"
-      TERM: dumb
+    # environment:
+    #   JVM_OPTS: -Xmx3200m
+    #   MALLOC_ARENA_MAX: 2
+    #   #GRADLE_OPTS: "-Xmx2048m -Dorg.gradle.daemon=false"
+    #   TERM: dumb
 
-    parallelism: 1
-    # resource_class: large
+    # parallelism: 1
+    # # resource_class: large
 
-    steps:
-      - checkout
-      # Download and cache dependencies
-      # - restore_cache:
-      #     keys:
-      #       - v1-dependencies-{{ checksum "build.gradle" }}
+    # steps:
+    #   - checkout
+    #   # Download and cache dependencies
+    #   # - restore_cache:
+    #   #     keys:
+    #   #       - v1-dependencies-{{ checksum "build.gradle" }}
 
-      # - run: gradle buildEnvironment
+    #   # - run: gradle buildEnvironment
 
-      # - save_cache:
-      #     paths:
-      #       - ~/.m2
-      #       - ~/.gradle
-      #     key: v1-dependencies-{{ checksum "build.gradle" }}
+    #   # - save_cache:
+    #   #     paths:
+    #   #       - ~/.m2
+    #   #       - ~/.gradle
+    #   #     key: v1-dependencies-{{ checksum "build.gradle" }}
 
-      # # run dev!
-      # # - run: gradle clean; gradle gorm-tools:check --no-daemon --max-workers 2
-      # - run: ./ci-scripts/dbcreate.sh test
+    #   # # run dev!
+    #   # # - run: gradle clean; gradle gorm-tools:check --no-daemon --max-workers 2
+    #   # - run: ./ci-scripts/dbcreate.sh test
 
-      - setup_remote_docker
-      #     docker_layer_caching: true
-      - run:
-          name: Build and push Docker image
-          command: |
-              set -x
-              docker build -t $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG .
-              docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD
-              docker push "${DOCKER_REPOSITORY}:${DOCKER_REPOSITORY_TAG}"
+    #   - setup_remote_docker
+    #   #     docker_layer_caching: true
+    #   - run:
+    #       name: Build and push Docker image
+    #       command: |
+    #           set -x
+    #           docker build -t $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG .
+    #           docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD
+    #           docker push "${DOCKER_REPOSITORY}:${DOCKER_REPOSITORY_TAG}"
 
   deploy:
       machine:
@@ -145,8 +145,8 @@ workflows:
   version: 2
   build-and-deploy:
     jobs:
-      # - build
-      - push_docker
+      - build
+      # - push_docker
           # requires:
           #   - build
       - deploy:
