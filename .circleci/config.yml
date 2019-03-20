@@ -9,8 +9,9 @@ jobs:
     #   only:
     #   - master
 
+    machine: true
+
     docker:
-      - image: docker:17.05.0-ce-git
       # 9ci's grails docker with mysql client, this is where all the steps are run
       - image: dock9/oraclejdk8:gradle-3.5.1
 
