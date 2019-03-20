@@ -110,6 +110,7 @@ jobs:
 
       # run dev!
       # - run: gradle clean; gradle gorm-tools:check --no-daemon --max-workers 2
+      - run: chown -R $USER:$USER root/
       - run: ./ci-scripts/dbcreate.sh test
 
       - setup_remote_docker
