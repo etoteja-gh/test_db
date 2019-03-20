@@ -94,7 +94,7 @@ jobs:
 
     steps:
       - checkout
-      - run: chown -R $USER:$USER root/
+      - run: chown -R $USER:$USER /root
       # Download and cache dependencies
       - restore_cache:
           keys:
