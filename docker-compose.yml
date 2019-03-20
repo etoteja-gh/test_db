@@ -1,0 +1,9 @@
+version: '3.5'
+
+services:
+  gradle:
+    image: dock9/oraclejdk8:gradle-3.5.1
+  mssql:
+    image: microsoft/mssql-server-linux:2017-CU4
+  mysql:
+    image: mysql/mysql-server:5.7
