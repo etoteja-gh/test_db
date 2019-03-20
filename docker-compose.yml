@@ -1,9 +1,26 @@
 version: '3.5'
 
 services:
-  gradle:
+  gradle-nine-db:
     image: dock9/oraclejdk8:gradle-3.5.1
-  mssql:
+
+    
+  sqlserver-nine-db:
     image: microsoft/mssql-server-linux:2017-CU4
-  mysql:
+# set -e
+
+# docker stop sqlserver-nine-db || true && docker rm sqlserver-nine-db || true
+
+# docker run --name=sqlserver-nine-db \
+# -e ACCEPT_EULA=Y \
+# -e 'SA_PASSWORD=999Foobar' \
+# -d -p 1433:1433 microsoft/mssql-server-linux:2017-CU4
+
+  mysql-nine-db:
     image: mysql/mysql-server:5.7
+# set -e
+
+# docker run --name=mysql-nine-db \
+# -e MYSQL_ROOT_PASSWORD=999Foobar \
+# -e MYSQL_ROOT_HOST=% \
+# -d -p 3306:3306 mysql/mysql-server:5.7
