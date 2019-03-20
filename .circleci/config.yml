@@ -118,7 +118,7 @@ jobs:
           name: Build and push Docker image
           command: |
               docker build -t $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG .
-              echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USER $DOCKERHUB_PASSWORD --password-stdin
+              docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD
               docker push "${DOCKER_REPOSITORY}:${DOCKER_REPOSITORY_TAG}"
 
   deploy:
