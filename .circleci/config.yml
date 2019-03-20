@@ -60,6 +60,18 @@ jobs:
       # - run: gradle clean; gradle gorm-tools:check --no-daemon --max-workers 2
       - run: ./ci-scripts/dbcreate.sh test
 
+
+     - run: bash scripts/generate.sh > Dockerfile
+
+     - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+
+     - run: docker build -t $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG .
+
+     - run: docker push $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG  && sleep 10
+
+     - store_artifacts:
+         path: Dockerfile
+
       # - store_artifacts:
       #     path: plugin/build/reports/tests/test/
       #     destination: test-reports/unit/
