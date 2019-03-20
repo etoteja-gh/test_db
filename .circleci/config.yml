@@ -4,73 +4,12 @@
 #
 version: 2
 jobs:
-  # build:
-  #   # branches:
-  #   #   only:
-  #   #   - master
+  build:
+    # branches:
+    #   only:
+    #   - master
 
-  #   docker:
-  #     # 9ci's grails docker with mysql client, this is where all the steps are run
-  #     - image: dock9/oraclejdk8:gradle-3.5.1
-
-  #     # linked to above, localhost:3606 will see this.
-  #     - image: mysql/mysql-server:5.7
-  #       environment:
-  #         MYSQL_ROOT_PASSWORD: 999Foobar
-  #         MYSQL_ROOT_HOST: '%'
-  #     - image: microsoft/mssql-server-linux:2017-CU4
-  #       environment:
-  #         SA_PASSWORD: 999Foobar
-  #         ACCEPT_EULA: Y
-
-  #   environment:
-  #     JVM_OPTS: -Xmx3200m
-  #     MALLOC_ARENA_MAX: 2
-  #     #GRADLE_OPTS: "-Xmx2048m -Dorg.gradle.daemon=false"
-  #     TERM: dumb
-
-  #   parallelism: 1
-  #   # resource_class: large
-
-  #   steps:
-  #     - checkout
-
-  #     # Download and cache dependencies
-  #     - restore_cache:
-  #         keys:
-  #         - v1-dependencies-{{ checksum "build.gradle" }}
-
-  #     - run: gradle buildEnvironment
-
-  #     - save_cache:
-  #         paths:
-  #           - ~/.m2
-  #           - ~/.gradle
-  #         key: v1-dependencies-{{ checksum "build.gradle" }}
-
-  #     - add_ssh_keys:
-  #         fingerprints:
-  #           - "32:15:5c:47:98:e9:3f:09:f9:32:c9:22:00:cc:15:9a"
-
-  #     # run tests!
-  #     # - run: gradle clean; gradle gorm-tools:check --no-daemon --max-workers 2
-  #     - run: ./ci-scripts/dbcreate.sh test
-
-  #     # - store_artifacts:
-  #     #     path: plugin/build/reports/tests/test/
-  #     #     destination: test-reports/unit/
-
-  #     # - store_artifacts:
-  #     #     path: plugin/build/reports/codenarc/
-  #     #     destination: codenarc/ 
-
-  #     # - store_test_results:
-  #     #     path: plugin/build/test-results
-
-  push_docker:
     docker:
-      # - image: circleci/buildpack-deps:stretch
-      - image: docker:17.05.0-ce-git
       # 9ci's grails docker with mysql client, this is where all the steps are run
       - image: dock9/oraclejdk8:gradle-3.5.1
 
@@ -83,6 +22,74 @@ jobs:
         environment:
           SA_PASSWORD: 999Foobar
           ACCEPT_EULA: Y
+
+    environment:
+      JVM_OPTS: -Xmx3200m
+      MALLOC_ARENA_MAX: 2
+      #GRADLE_OPTS: "-Xmx2048m -Dorg.gradle.daemon=false"
+      TERM: dumb
+
+    parallelism: 1
+    # resource_class: large
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "build.gradle" }}
+
+      - run: gradle buildEnvironment
+
+      - save_cache:
+          paths:
+            - ~/.m2
+            - ~/.gradle
+          key: v1-dependencies-{{ checksum "build.gradle" }}
+
+      - add_ssh_keys:
+          fingerprints:
+            - "32:15:5c:47:98:e9:3f:09:f9:32:c9:22:00:cc:15:9a"
+
+      # run tests!
+      # - run: gradle clean; gradle gorm-tools:check --no-daemon --max-workers 2
+      - run: ./ci-scripts/dbcreate.sh test
+
+      - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      - run: docker build -t $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG .
+      - run: docker push $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG && sleep 10
+
+      - store_artifacts:
+          path: Dockerfile
+
+      # - store_artifacts:
+      #     path: plugin/build/reports/tests/test/
+      #     destination: test-reports/unit/
+
+      # - store_artifacts:
+      #     path: plugin/build/reports/codenarc/
+      #     destination: codenarc/ 
+
+      # - store_test_results:
+      #     path: plugin/build/test-results
+
+  # push_docker:
+  #   docker:
+  #     # - image: circleci/buildpack-deps:stretch
+  #     - image: docker:17.05.0-ce-git
+  #     # 9ci's grails docker with mysql client, this is where all the steps are run
+  #     - image: dock9/oraclejdk8:gradle-3.5.1
+
+  #     # linked to above, localhost:3606 will see this.
+  #     - image: mysql/mysql-server:5.7
+  #       environment:
+  #         MYSQL_ROOT_PASSWORD: 999Foobar
+  #         MYSQL_ROOT_HOST: '%'
+  #     - image: microsoft/mssql-server-linux:2017-CU4
+  #       environment:
+  #         SA_PASSWORD: 999Foobar
+  #         ACCEPT_EULA: Y
 
     environment:
       JVM_OPTS: -Xmx3200m
