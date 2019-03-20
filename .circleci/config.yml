@@ -151,7 +151,7 @@ workflows:
           #   - build
       - deploy:
           requires:
-            - push_docker
+            - build
           filters:
             branches:
               only:
