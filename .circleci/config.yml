@@ -9,9 +9,11 @@ jobs:
     #   only:
     #   - master
 
-    machine: true
-
     docker:
+      - image: $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG
+        auth:
+          username: $DOCKERHUB_USER
+          password: $DOCKERHUB_PASSWORD
       # 9ci's grails docker with mysql client, this is where all the steps are run
       - image: dock9/oraclejdk8:gradle-3.5.1
 
@@ -57,13 +59,6 @@ jobs:
       # run tests!
       # - run: gradle clean; gradle gorm-tools:check --no-daemon --max-workers 2
       - run: ./ci-scripts/dbcreate.sh test
-
-      - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-      - run: docker build -t $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG .
-      - run: docker push $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG && sleep 10
-
-      - store_artifacts:
-          path: Dockerfile
 
       # - store_artifacts:
       #     path: plugin/build/reports/tests/test/
