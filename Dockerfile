@@ -36,8 +36,4 @@ FROM dock9/oraclejdk8:gradle-3.5.1
 # PWD=123456
 EXPOSE 3306
 
-
-# RUN dock9/oraclejdk8:gradle-3.5.1 /var/lib/nine-db/ci-scripts/dbcreate.sh dev
-
-# CMD [ "dock9/oraclejdk8:gradle-3.5.1", "/var/lib/nine-db/ci-scripts/dbcreate.sh", "dev" ]
 ENTRYPOINT [ "/var/lib/nine-db/ci-scripts/dbcreate.sh", "dev"]
