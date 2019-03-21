@@ -34,6 +34,6 @@ FROM dock9/oraclejdk8:gradle-3.5.1
 # GRGIT_USER=0305edb725e4e9e308161755e13c0dd50f1d7e9d
 # CIRCLE_BRANCH=release/9.9.x
 # PWD=123456
-EXPOSE 3306
+
 
 ENTRYPOINT [ "/var/lib/nine-db/ci-scripts/dbcreate.sh", "dev"]
