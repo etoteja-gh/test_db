@@ -22,8 +22,6 @@ RUN mkdir -p /var/lib/nine-db
 
 COPY . /var/lib/nine-db/
 
-RUN ls /var/lib/nine-db/
-
 # FROM microsoft/mssql-server-linux:2017-CU4
 # # ACCEPT_EULA=Y
 # # SA_PASSWORD=999Foobar
@@ -37,9 +35,6 @@ RUN ls /var/lib/nine-db/
 # # MYSQL_PORT=3306
 # EXPOSE 3306
 
-# COPY . /var/lib/nine-db/
 
-# RUN ls /var/lib/nine-db/
-
-RUN /var/lib/nine-db/ci-scripts/dbcreate.sh dev
-# CMD ["ci-scripts/dbcreate.sh", "dev"]
+# RUN /var/lib/nine-db/ci-scripts/dbcreate.sh dev
+CMD ["/var/lib/nine-db/ci-scripts/dbcreate.sh", "dev"]
