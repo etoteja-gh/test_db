@@ -20,14 +20,21 @@ plugins {
 apply plugin:"groovy"
 
 /***** setup props *******/
+if(!hasProperty('mysqlHost')) {
+  defProp 'mysqlHost', '192.168.0.121'
+}
+if(!hasProperty('mssqlHost')) {
+  defProp 'mssqlHost', '192.168.0.121'
+}
+
 ext {
   mysql = [
-    baseUrl: 'jdbc:mysql://127.0.0.1/',
+    baseUrl: "jdbc:mysql://${mysqlHost}/",
     user: 'root',
     driver: 'com.mysql.jdbc.Driver'
   ]
   mssql = [
-    baseUrl: 'jdbc:sqlserver://localhost:1433;',
+    baseUrl: "jdbc:sqlserver://${mssqlHost}:1433;",
     namePrefix:'databaseName=',
     user: 'sa',
     driver: 'com.microsoft.sqlserver.jdbc.SQLServerDriver',

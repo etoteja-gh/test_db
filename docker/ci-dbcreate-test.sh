@@ -11,7 +11,9 @@ docker run -it --rm --net="host" \
 -e GRGIT_USER=0305edb725e4e9e308161755e13c0dd50f1d7e9d \
 -e CIRCLE_BRANCH="release/9.9.x" \
 -v ${PWD}:/app \
-dock9/oraclejdk8:gradle-3.5.1 ./ci-scripts/dbcreate.sh test
+dock9/oraclejdk8:gradle-3.5.1 
+
+./ci-scripts/dbcreate.sh test
 
 
 

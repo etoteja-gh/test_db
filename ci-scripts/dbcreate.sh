@@ -6,7 +6,7 @@ set -e
 ver="${CIRCLE_BRANCH#release/}"
 #sqlFile="test_$ver.sql"
 sqlFile="test_$ver.sql"
-echo sqlFile
+echo $sqlFile
 dbName="rcm_9ci_test"
 gitBranch="9.9.x"
 
