@@ -4,10 +4,10 @@ set -e
 
 # setup variables
 gitBranch=db-create-sql
-
+# MYSQL_SERVER_ADDRESS=192.168.0.121
 echo "backing up $1 > $2 "
 
-mysqldump --opt --host=127.0.0.1 \
+mysqldump --opt --host=${MYSQL_SERVER_ADDRESS} \
 --user=root --password=999Foobar \
 --routines=true \
 --skip-dump-date \

@@ -8,7 +8,7 @@ dbName="rcm_9ci_$1"
 
 mkdir -p build/mysqldump
 
-mysqldump --opt --host=127.0.0.1 \
+mysqldump --opt --host=${MYSQL_SERVER_ADDRESS} \
 --user=root --password=999Foobar \
 --routines=true \
 --skip-dump-date \

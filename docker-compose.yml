@@ -33,10 +33,10 @@ services:
   #     - "1433:1433"
   #   volumes:
   #     - ./sqlserver:/var/lib/sqlserver
-  #   # docker run --name=sqlserver-nine-db \
-  #   # -e ACCEPT_EULA=Y \
-  #   # -e 'SA_PASSWORD=999Foobar' \
-  #   # -d -p 1433:1433 microsoft/mssql-server-linux:2017-CU4
+docker run --name=sqlserver-nine-db \
+-e ACCEPT_EULA=Y \
+-e 'SA_PASSWORD=999Foobar' \
+-d -p 1433:1433 microsoft/mssql-server-linux:2017-CU4
 
   # mysql-nine-db:
   #   image: mysql/mysql-server:5.7
@@ -49,10 +49,10 @@ services:
   #     - ./mysql:/var/lib/mysql
   #   ports:
   #     - "3306:3306" 
-  #   # docker run --name=mysql-nine-db \
-  #   # -e MYSQL_ROOT_PASSWORD=999Foobar \
-  #   # -e MYSQL_ROOT_HOST=% \
-  #   # -d -p 3306:3306 mysql/mysql-server:5.7
+docker run --name=mysql-nine-db \
+-e MYSQL_ROOT_PASSWORD=999Foobar \
+-e MYSQL_ROOT_HOST=% \
+-d -p 3306:3306 mysql/mysql-server:5.7
 
   # gradle-nine-db:
   #   image: dock9/oraclejdk8:gradle-3.5.1
@@ -66,6 +66,6 @@ services:
     # --name=gradle-nine-db \
     # -e GRGIT_USER=0305edb725e4e9e308161755e13c0dd50f1d7e9d \
     # -e CIRCLE_BRANCH="release/9.9.x" \
-    # -v ${PWD}:/app \
+    # -v 123456:/app \
     # dock9/oraclejdk8:gradle-3.5.1 ./ci-scripts/dbcreate.sh test
 

@@ -7,10 +7,6 @@ jobs:
   build:
     
     docker:
-      - image: $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG
-        auth:
-          username: $DOCKERHUB_USER
-          password: $DOCKERHUB_PASSWORD
       # 9ci's grails docker with mysql client, this is where all the steps are run
       - image: dock9/oraclejdk8:gradle-3.5.1
 
@@ -19,6 +15,7 @@ jobs:
         environment:
           MYSQL_ROOT_PASSWORD: 999Foobar
           MYSQL_ROOT_HOST: '%'
+
       - image: microsoft/mssql-server-linux:2017-CU4
         environment:
           SA_PASSWORD: 999Foobar
@@ -29,6 +26,8 @@ jobs:
       MALLOC_ARENA_MAX: 2
       #GRADLE_OPTS: "-Xmx2048m -Dorg.gradle.daemon=false"
       TERM: dumb
+      MYSQL_SERVER_ADDRESS: 127.0.0.1
+      MSSQL_SERVER_ADDRESS: 127.0.0.1
 
     parallelism: 1
     # resource_class: large
@@ -59,28 +58,11 @@ jobs:
       
       - run: ./ci-scripts/dbcreate.sh test
 
-      - setup_remote_docker
-      #     version: 18.06.0-ce
+      # - setup_remote_docker
+      # #     version: 18.06.0-ce
 
-      - run:
-          name: Install Docker client
-          command: |
-            set -x
-            VER="17.03.0-ce"
-            curl -L -o /tmp/docker-$VER.tgz https://download.docker.com/linux/static/stable/x86_64/docker-$VER.tgz
-            tar -xz -C /tmp -f /tmp/docker-$VER.tgz
-            mv /tmp/docker/* /usr/bin
-      - run: export DOCKER_HOST=''
-      - run: docker version
-      - run: sudo service docker start
-      - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-
-      - run: docker build -t $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG .
-
-      - run: docker push $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG  && sleep 10
-
-      - store_artifacts:
-          path: Dockerfile
+      # - store_artifacts:
+      #     path: Dockerfile
 
       # - store_artifacts:
       #     path: plugin/build/reports/tests/test/
@@ -92,61 +74,6 @@ jobs:
 
       # - store_test_results:
       #     path: plugin/build/test-results
-
-  # push_docker:
-  #   docker:
-  #     # - image: circleci/buildpack-deps:stretch
-  #     - image: docker:17.05.0-ce-git
-  #     # 9ci's grails docker with mysql client, this is where all the steps are run
-  #     - image: dock9/oraclejdk8:gradle-3.5.1
-
-  #     # linked to above, localhost:3606 will see this.
-  #     - image: mysql/mysql-server:5.7
-  #       environment:
-  #         MYSQL_ROOT_PASSWORD: 999Foobar
-  #         MYSQL_ROOT_HOST: '%'
-  #     - image: microsoft/mssql-server-linux:2017-CU4
-  #       environment:
-  #         SA_PASSWORD: 999Foobar
-  #         ACCEPT_EULA: Y
-
-    # environment:
-    #   JVM_OPTS: -Xmx3200m
-    #   MALLOC_ARENA_MAX: 2
-    #   #GRADLE_OPTS: "-Xmx2048m -Dorg.gradle.daemon=false"
-    #   TERM: dumb
-
-    # parallelism: 1
-    # # resource_class: large
-
-    # steps:
-    #   - checkout
-    #   # Download and cache dependencies
-    #   # - restore_cache:
-    #   #     keys:
-    #   #       - v1-dependencies-{{ checksum "build.gradle" }}
-
-    #   # - run: gradle buildEnvironment
-
-    #   # - save_cache:
-    #   #     paths:
-    #   #       - ~/.m2
-    #   #       - ~/.gradle
-    #   #     key: v1-dependencies-{{ checksum "build.gradle" }}
-
-    #   # # run dev!
-    #   # # - run: gradle clean; gradle gorm-tools:check --no-daemon --max-workers 2
-    #   # - run: ./ci-scripts/dbcreate.sh test
-
-    #   - setup_remote_docker
-    #   #     docker_layer_caching: true
-    #   - run:
-    #       name: Build and push Docker image
-    #       command: |
-    #           set -x
-    #           docker build -t $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG .
-    #           docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD
-    #           docker push "${DOCKER_REPOSITORY}:${DOCKER_REPOSITORY_TAG}"
 
   deploy:
       machine:
