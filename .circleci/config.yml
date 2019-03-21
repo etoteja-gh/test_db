@@ -92,9 +92,6 @@ workflows:
   build-and-deploy:
     jobs:
       - build
-      # - push_docker
-          # requires:
-          #   - build
       - deploy:
           requires:
             - build
