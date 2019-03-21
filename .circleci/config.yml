@@ -71,6 +71,7 @@ jobs:
             tar -xz -C /tmp -f /tmp/docker-$VER.tgz
             mv /tmp/docker/* /usr/bin
       - run: export DOCKER_HOST=''
+      - run: docker version
       - run: sudo service docker start
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
