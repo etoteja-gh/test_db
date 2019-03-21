@@ -20,12 +20,12 @@ plugins {
 apply plugin:"groovy"
 
 /***** setup props *******/
-if(!hasProperty('mysqlHost')) {
-  defProp 'mysqlHost', '192.168.0.121'
-}
-if(!hasProperty('mssqlHost')) {
-  defProp 'mssqlHost', '192.168.0.121'
-}
+
+defProp 'mysqlHost', hasProperty('mysqlHost') ? mysqlHost : '127.0.0.1'
+defProp 'mssqlHost', hasProperty('mssqlHost') ? mssqlHost : '127.0.0.1'
+
+println "mysqlHost -> $mysqlHost"
+println "mssqlHost -> $mssqlHost"
 
 ext {
   mysql = [
@@ -51,11 +51,11 @@ ext {
   autoIncrementList = []
 }
 
-defProp 'env', 'test'
+defProp 'env', hasProperty('env') ? env : 'test'
 println "Environment set to -> $env"
 
 if(!hasProperty('dbms')) {
-    defProp 'dbms', System.properties['BMS'] ?: 'mysql'
+    defProp 'dbms', System.properties['DBMS'] ?: 'mysql'
 }
 
 defProp 'dbPrefix', 'rcm_9ci'

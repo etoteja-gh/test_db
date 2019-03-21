@@ -26,6 +26,8 @@ jobs:
       MALLOC_ARENA_MAX: 2
       #GRADLE_OPTS: "-Xmx2048m -Dorg.gradle.daemon=false"
       TERM: dumb
+      MYSQL_SERVER_ADDRESS: 127.0.0.1
+      MSSQL_SERVER_ADDRESS: 127.0.0.1
 
     parallelism: 1
     # resource_class: large

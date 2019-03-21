@@ -4,7 +4,7 @@ set -e
 
 # setup variables
 gitBranch=db-create-sql
-MYSQL_SERVER_ADDRESS=192.168.0.121
+# MYSQL_SERVER_ADDRESS=192.168.0.121
 echo "backing up $1 > $2 "
 
 mysqldump --opt --host=${MYSQL_SERVER_ADDRESS} \

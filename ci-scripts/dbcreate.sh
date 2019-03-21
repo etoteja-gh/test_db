@@ -10,9 +10,17 @@ echo $sqlFile
 dbName="rcm_9ci_test"
 gitBranch="9.9.x"
 
+env="test"
+
+if test $1 ; then
+  env=$1
+fi
+
+echo $env
+
 # run through all of them to test mysql by default
-gradle -Penv=test db-create
-gradle -DBMS=mssql -Penv=test db-create
+gradle -Penv=$env -PmysqlHost="${MYSQL_SERVER_ADDRESS}" db-create
+gradle -DDBMS=mssql -Penv="$env" -PmssqlHost="${MSSQL_SERVER_ADDRESS}" db-create
 #grails -DB=$dbName $1 db-create
 
 # dump the mysql test data for other projects

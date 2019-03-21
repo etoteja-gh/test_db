@@ -14,6 +14,12 @@ FROM dock9/oraclejdk8:gradle-3.5.1
 # CIRCLE_BRANCH=release/9.9.x
 # PWD=123456
 
+
+ARG MYSQL_SERVER_ADDRESS
+ARG MSSQL_SERVER_ADDRESS
+ENV MYSQL_SERVER_ADDRESS=${MYSQL_SERVER_ADDRESS}
+ENV MSSQL_SERVER_ADDRESS=${MSSQL_SERVER_ADDRESS}
+
 RUN apk update && apk add bash
 
 WORKDIR /var/lib/nine-db
@@ -35,6 +41,5 @@ COPY . /var/lib/nine-db/
 # # MYSQL_PORT=3306
 # EXPOSE 3306
 
-
-# RUN /var/lib/nine-db/ci-scripts/dbcreate.sh dev
+# ENTRYPOINT ["/var/lib/nine-db/ci-scripts/dbcreate.sh", "dev"]
 CMD ["/var/lib/nine-db/ci-scripts/dbcreate.sh", "dev"]

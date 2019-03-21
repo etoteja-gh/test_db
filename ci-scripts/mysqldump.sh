@@ -5,7 +5,6 @@ set -e
 # setup variables
 sqlFile="$1_$CIRCLE_BRANCH.sql"
 dbName="rcm_9ci_$1"
-MYSQL_SERVER_ADDRESS=192.168.0.121
 
 mkdir -p build/mysqldump
 
