@@ -16,7 +16,7 @@ if test $1 ; then
   env=$1
 fi
 
-echo $env
+echo "Running on $env mode"
 
 # run through all of them to test mysql by default
 gradle -Penv=$env -PmysqlHost="${MYSQL_SERVER_ADDRESS}" db-create
