@@ -40,7 +40,6 @@ jobs:
           keys:
           - v1-dependencies-{{ checksum "build.gradle" }}
 
- 
       - run: gradle buildEnvironment
 
       - save_cache:
@@ -59,7 +58,6 @@ jobs:
       - run: ./ci-scripts/dbcreate.sh test
 
       # - setup_remote_docker
-      # #     version: 18.06.0-ce
 
       # - store_artifacts:
       #     path: Dockerfile
@@ -81,11 +79,24 @@ jobs:
       steps:
         - add_ssh_keys:
             fingerprints:
-              - $TARGET_SERVER_SSH_FINGERPRINT
+              - "${TARGET_SERVER_SSH_FINGERPRINT}"
         - run:
             name: Deploy nine-db from docker repository to server
+            # parameters:
+            # $1: docker_repo. default dock9/nine-db
+            # $2: interval. default 10 seconds
+            # $3: timeout. default 1200 seconds
+            # $4: mysql docker repo. default mysql/mysql-server:5.7
+            # $5: mssql docker repo. default microsoft/mssql-server-linux:2017-CU4
             command: |
-              ssh -o StrictHostKeyChecking=no $TARGET_SERVER_USER_NAME@$TARGET_SERVER_ADDRESS "/bin/bash $DEPLOYMENT_SCRIPT_FILE_PATH $DOCKERHUB_USER $DOCKERHUB_PASSWORD $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG"
+              ssh -o StrictHostKeyChecking=no \
+                $TARGET_SERVER_USER_NAME@$TARGET_SERVER_ADDRESS \
+                "/bin/bash $DEPLOYMENT_SCRIPT_FILE_PATH \
+                $DOCKERHUB_USER $DOCKERHUB_PASSWORD \
+                $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG \
+                mysql/mysql-server:5.7 \
+                microsoft/mssql-server-linux:2017-CU4 \
+                "
 
 workflows:
   version: 2
