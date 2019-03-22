@@ -81,7 +81,7 @@ jobs:
       steps:
         - add_ssh_keys:
             fingerprints:
-              - $TARGET_SERVER_SSH_FINGERPRINT
+              - "${TARGET_SERVER_SSH_FINGERPRINT}"
         - run:
             name: Deploy nine-db from docker repository to server
             command: |
