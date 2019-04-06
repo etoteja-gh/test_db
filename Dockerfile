@@ -22,7 +22,7 @@ ENV DOCKERHUB_PASSWORD=${DOCKERHUB_PASSWORD}
 
 # Update packages and removev gabase dockers
 # RUN apt-get && apt-get install -y --no-install-recommends apt-utils
-RUN apt-get remove docker docker-engine docker.io 
+# RUN apt-get remove docker docker-engine docker.io 
 
 # Install and setup local
 RUN apt-get -y install locales
