@@ -30,4 +30,3 @@ cd build/$gitBranch
 git add .
 git commit -a -m "CI built and pushed $2 [skip ci]"
 git push origin HEAD
-

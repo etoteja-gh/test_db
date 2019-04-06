@@ -20,11 +20,10 @@ plugins {
 apply plugin:"groovy"
 
 /***** setup props *******/
-
 defProp 'mysqlHost', hasProperty('mysqlHost') ? mysqlHost : '127.0.0.1'
-defProp 'mssqlHost', hasProperty('mssqlHost') ? mssqlHost : '127.0.0.1'
-
 println "mysqlHost -> $mysqlHost"
+
+defProp 'mssqlHost', hasProperty('mssqlHost') ? mssqlHost : '127.0.0.1'
 println "mssqlHost -> $mssqlHost"
 
 ext {

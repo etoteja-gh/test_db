@@ -1,7 +1,8 @@
-"id","Name","Description","BatchType","discountGroupId","matchGroupId","memoGroupId","offsetGroupId","Delimiter","LookupBatchType","LayoutType","LayoutFormat","IsPreReconciled","IsSetCustomer","QuoteChar","ScanDirectory","CreatedBy","CreatedDate","EditedBy","EditedDate","version","isUniqueByFileName"
-"26","lexar  A/R Export","NULL","NULL","NULL","NULL","NULL","NULL"," ","NULL","3","F","NULL","NULL","NULL","1","1","2008-01-11T00:00:00.000","1","2008-01-11T00:00:00.000","0","false"
-"29","Basic Remit Spreadsheet","NULL","NULL","NULL","NULL","NULL","NULL",",","NULL","12","D","NULL","NULL","NULL","0","107","2010-12-16T15:00:42.000","107","2010-12-16T15:00:42.000","0","false"
-"50","walmart retail link","NULL","NULL","NULL","NULL","NULL","NULL",",","NULL","12","D","NULL","NULL","NULL","0","1","2008-01-11T00:00:00.000","1","2008-01-11T00:00:00.000","0","false"
-"51","BAI2","NULL","NULL","NULL","NULL","NULL","NULL"," ","NULL","3","F","NULL","NULL","NULL","bai","1","2008-01-11T00:00:00.000","1","2008-01-11T00:00:00.000","0","false"
-"52","Wells Fargo","NULL","NULL","NULL","NULL","NULL","NULL",",","NULL","3","D","NULL","NULL","NULL","0","1","2008-01-11T00:00:00.000","1","2008-01-11T00:00:00.000","0","false"
-"53","9ci Rapid Key Spreadsheet","manual EDI 820","Edi820","NULL","NULL","NULL","NULL",",","NULL","12","D","NULL","NULL","NULL","spreadsheet","107","2010-12-17T00:04:57.000","107","2010-12-17T00:04:57.000","0","false"
+id,Name,Description,BatchType,discountGroupId,matchGroupId,memoGroupId,offsetGroupId,Delimiter,LookupBatchType,LayoutType,LayoutFormat,IsPreReconciled,IsSetCustomer,QuoteChar,ScanDirectory,CreatedBy,CreatedDate,EditedBy,EditedDate,version,isUniqueByFileName
+26,lexar  A/R Export,NULL,NULL,NULL,NULL,NULL,NULL, ,NULL,3,F,NULL,NULL,NULL,1,1,2008-01-11T00:00:00.000,1,2008-01-11T00:00:00.000,0,FALSE
+29,Basic Remit Spreadsheet,NULL,NULL,NULL,NULL,NULL,NULL,",",NULL,12,D,NULL,NULL,NULL,0,107,2010-12-16T15:00:42.000,107,2010-12-16T15:00:42.000,0,FALSE
+50,walmart retail link,NULL,NULL,NULL,NULL,NULL,NULL,",",NULL,12,D,NULL,NULL,NULL,0,1,2008-01-11T00:00:00.000,1,2008-01-11T00:00:00.000,0,FALSE
+51,BAI2,NULL,NULL,NULL,NULL,NULL,NULL, ,NULL,3,F,NULL,NULL,NULL,bai,1,2008-01-11T00:00:00.000,1,2008-01-11T00:00:00.000,0,FALSE
+52,Wells Fargo,NULL,NULL,NULL,NULL,NULL,NULL,",",NULL,3,D,NULL,NULL,NULL,0,1,2008-01-11T00:00:00.000,1,2008-01-11T00:00:00.000,0,FALSE
+53,9ci Rapid Key Spreadsheet,manual EDI 820,Edi820,NULL,NULL,NULL,NULL,",",NULL,12,D,NULL,NULL,NULL,spreadsheet,107,2010-12-17T00:04:57.000,107,2010-12-17T00:04:57.000,0,FALSE
+54,ocr,NULL,NULL,NULL,NULL,NULL,NULL,",",NULL,3,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0

@@ -74,16 +74,32 @@ jobs:
               - $TARGET_SERVER_SSH_FINGERPRINT
         - run:
             name: Deploy nine-db from docker repository to server
-            # parameters:
-            # $1: docker_repo. default dock9/nine-db
-            # $2: interval. default 10 seconds
-            # $3: timeout. default 1200 seconds
-            # $4: mysql docker repo. default mysql/mysql-server:5.7
-            # $5: mssql docker repo. default microsoft/mssql-server-linux:2017-CU4
+            # Command
+            # ./deploy_app.sh \
+            #  --docker-user=test \
+            #  --docker-password='123qwe!@#QWE' \
+            #  --docker-repo=dock9/ocr:latest \
+            #  --mysql-host=127.0.0.1 \
+            #  --mssql-host=127.0.0.1 \
+            #  --rancher-api-access-key=token-8pv6f \
+            #  --rancher-api-secret-key=462fwxgwhw94lsnspqmktdvnsbjr786nhfdwst5h8tlzlsp7tvkf97 \
+            #  --rancher-workload-redeployment-api=''
+
+            # Arguments
+            # --docker-user: $DOCKERHUB_USER.
+            # --docker-password: $DOCKERHUB_PASSWORD
+            # --docker-repo: $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG. default dock9/nine-db:latest
+            # --mysql-host=$MYSQL_SERVER_ADDRESS
+            # --mssql-host=$MSSQL_SERVER_ADDRESS
+            # --rancher-api-access-key: $RANCHER_API_ACCESS_KEY
+            # --rancher-api-secret-key: $RANCHER_API_SECRET_KEY
+            # --rancher-workload-redeployment-api: $RANCHER_WORKLOAD_REDEPLOYMENT_API
+            # --rancher-workload-redeployment-api-data: $RANCHER_WORKLOAD_REDEPLOYMENT_API_DATA
+
             command: |
               ssh -o StrictHostKeyChecking=no \
                 $TARGET_SERVER_USER_NAME@$TARGET_SERVER_ADDRESS \
-                "/bin/bash $DEPLOYMENT_SCRIPT_FILE_PATH $DOCKERHUB_USER $DOCKERHUB_PASSWORD $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG mysql/mysql-server:5.7 $MYSQL_SERVER_ADDRESS microsoft/mssql-server-linux:2017-CU4 $MSSQL_SERVER_ADDRESS $CIRCLE_BRANCH"
+                "/bin/bash ${DEPLOYMENT_SCRIPT_FILE_PATH} --docker-user=${DOCKERHUB_USER} --docker-password=${DOCKERHUB_PASSWORD} --docker-repo=${DOCKER_REPOSITORY}:${DOCKER_REPOSITORY_TAG} --mysql-repo=mysql/mysql-server:5.7 --mysql-host=${MYSQL_SERVER_ADDRESS} --mssql-repo=microsoft/mssql-server-linux:2017-CU4 --mssql-host=${MSSQL_SERVER_ADDRESS} --circl-branch=${CIRCLE_BRANCH}"
 
 workflows:
   version: 2
