@@ -25,9 +25,9 @@ ENV DOCKERHUB_PASSWORD=${DOCKERHUB_PASSWORD}
 # RUN apt-get remove docker docker-engine docker.io 
 
 # Install and setup local
-RUN apt-get -y install locales
-RUN locale-gen en_US.UTF-8
-RUN update-locale LANG=en_US.UTF-8
+# RUN apt-get -y install locales
+# RUN locale-gen en_US.UTF-8
+# RUN update-locale LANG=en_US.UTF-8
 
 # Install docker
 RUN apt-get install -y linux-image-extra-virtual 
