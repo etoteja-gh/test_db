@@ -1,3 +1,5 @@
 databaseChangeLog:
 
 - include: { file: 'v9_9_x/9-9-01-start.groovy'}
+- include: { file: 'v9_9_x/9-9-02-PaymentOcr.groovy'}
+- include: { file: 'v9_9_x/9-9-03-PayApi.groovy'}

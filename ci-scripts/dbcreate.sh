@@ -33,4 +33,3 @@ if [ "${CIRCLE_BRANCH#release/}" != "${CIRCLE_BRANCH}" ]; then
 else
    echo Not dumping circle branch $CIRCLE_BRANCH
 fi
-

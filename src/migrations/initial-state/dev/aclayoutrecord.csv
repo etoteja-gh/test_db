@@ -1,21 +1,22 @@
-"id","ApiLayoutId","Name","Description","RecordType","RecordSequence","RecordGroup","StartFromLineNumber","CreatedBy","CreatedDate","EditedBy","EditedDate","version"
-"94","29","Deposit record","NULL","H","1","NULL","NULL","0","NULL","0","NULL","0"
-"95","29","Check record","NULL","D","2","NULL","NULL","0","NULL","0","NULL","0"
-"97","29","Invoice record","NULL","D","3","NULL","NULL","0","NULL","0","NULL","0"
-"181","50","DepositHdr","NULL","H","1","NULL","NULL","0","NULL","0","NULL","0"
-"182","50","check","NULL","D","2","NULL","NULL","0","NULL","0","NULL","0"
-"183","50","Invoice","NULL","D","3","NULL","NULL","0","NULL","0","NULL","0"
-"184","51","Immediate Address Header(1)","NULL","H","1","NULL","NULL","0","NULL","0","NULL","0"
-"185","51","Service Record(2)","NULL","H","2","NULL","NULL","0","NULL","0","NULL","0"
-"186","51","Detail Batch Header(5)","NULL","H","3","NULL","NULL","0","NULL","0","NULL","0"
-"187","51","Detail Record(6)","NULL","D","4","NULL","NULL","0","NULL","0","NULL","0"
-"188","51","Overflow Record(4)","NULL","D","5","NULL","NULL","0","NULL","0","NULL","0"
-"189","51","Batch Total Trailer(7)","NULL","T","6","NULL","NULL","0","NULL","0","NULL","0"
-"190","51","Server Total Record(8)","NULL","T","7","NULL","NULL","0","NULL","0","NULL","0"
-"191","51","Destination Trailer(9)","NULL","T","8","NULL","NULL","0","NULL","0","NULL","0"
-"192","52","Deposit record","NULL","H","1","NULL","NULL","0","NULL","0","NULL","0"
-"193","52","Check record","NULL","D","2","NULL","NULL","0","NULL","0","NULL","0"
-"194","52","Invoice record","NULL","D","3","NULL","NULL","0","NULL","0","NULL","0"
-"195","53","Deposit record","NULL","H","1","NULL","NULL","0","NULL","0","NULL","0"
-"196","53","Check record","NULL","D","2","NULL","NULL","0","NULL","0","NULL","0"
-"197","53","Invoice record","NULL","D","3","NULL","NULL","0","NULL","0","NULL","0"
+id,ApiLayoutId,Name,Description,RecordType,RecordSequence,RecordGroup,StartFromLineNumber,CreatedBy,CreatedDate,EditedBy,EditedDate,version
+94,29,Deposit record,NULL,H,1,NULL,NULL,0,NULL,0,NULL,0
+95,29,Check record,NULL,D,2,NULL,NULL,0,NULL,0,NULL,0
+97,29,Invoice record,NULL,D,3,NULL,NULL,0,NULL,0,NULL,0
+181,50,DepositHdr,NULL,H,1,NULL,NULL,0,NULL,0,NULL,0
+182,50,check,NULL,D,2,NULL,NULL,0,NULL,0,NULL,0
+183,50,Invoice,NULL,D,3,NULL,NULL,0,NULL,0,NULL,0
+184,51,Immediate Address Header(1),NULL,H,1,NULL,NULL,0,NULL,0,NULL,0
+185,51,Service Record(2),NULL,H,2,NULL,NULL,0,NULL,0,NULL,0
+186,51,Detail Batch Header(5),NULL,H,3,NULL,NULL,0,NULL,0,NULL,0
+187,51,Detail Record(6),NULL,D,4,NULL,NULL,0,NULL,0,NULL,0
+188,51,Overflow Record(4),NULL,D,5,NULL,NULL,0,NULL,0,NULL,0
+189,51,Batch Total Trailer(7),NULL,T,6,NULL,NULL,0,NULL,0,NULL,0
+190,51,Server Total Record(8),NULL,T,7,NULL,NULL,0,NULL,0,NULL,0
+191,51,Destination Trailer(9),NULL,T,8,NULL,NULL,0,NULL,0,NULL,0
+192,52,Deposit record,NULL,H,1,NULL,NULL,0,NULL,0,NULL,0
+193,52,Check record,NULL,D,2,NULL,NULL,0,NULL,0,NULL,0
+194,52,Invoice record,NULL,D,3,NULL,NULL,0,NULL,0,NULL,0
+195,53,Deposit record,NULL,H,1,NULL,NULL,0,NULL,0,NULL,0
+196,53,Check record,NULL,D,2,NULL,NULL,0,NULL,0,NULL,0
+197,53,Invoice record,NULL,D,3,NULL,NULL,0,NULL,0,NULL,0
+54,54,ocr,,,NULL,,NULL,NULL,NULL,NULL,NULL,0

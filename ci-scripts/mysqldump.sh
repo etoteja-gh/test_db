@@ -13,4 +13,3 @@ mysqldump --opt --host=${MYSQL_SERVER_ADDRESS} \
 --routines=true \
 --skip-dump-date \
 $dbName > build/mysqldump/$sqlFile
-
