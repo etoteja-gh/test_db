@@ -20,7 +20,7 @@ ENV MSSQL_SERVER_ADDRESS=${MSSQL_SERVER_ADDRESS}
 ENV DOCKERHUB_USER=${DOCKERHUB_USER}
 ENV DOCKERHUB_PASSWORD=${DOCKERHUB_PASSWORD}
 
-RUN RUN apt-get update -qq
+RUN apt-get update -qq
 
 # Update packages and removev gabase dockers
 RUN apt-get && apt-get install -y --no-install-recommends apt-utils
