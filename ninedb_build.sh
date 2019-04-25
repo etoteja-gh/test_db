@@ -1,26 +1,26 @@
 #!/bin/bash
 
 function run_mysql_docker () {
-  echo "Runing mysql docker ..."
-  docker pull mysql/mysql-server:5.7
+  echo "Runing mysql docker ${MYSQL_REPOSITORY} ..."
+  docker pull ${MYSQL_REPOSITORY}
   docker run \
     --name=mysql-nine-db \
     -e MYSQL_ROOT_PASSWORD=999Foobar \
     -e MYSQL_ROOT_HOST=% \
     -d -p 3306:3306 \
-    mysql/mysql-server:5.7
+    ${MYSQL_REPOSITORY}
   
   echo "Done to run mysql."
 }
 
 function run_mssql_docker () {
-  echo "Runing mssql docker ..."
-  docker pull microsoft/mssql-server-linux:2017-CU4
+  echo "Runing mssql docker ${MSSQL_REPOSITORY} ..."
+  docker pull ${MSSQL_REPOSITORY}
   docker run --name=sqlserver-nine-db \
     -e ACCEPT_EULA=Y \
     -e 'SA_PASSWORD=999Foobar' \
     -d -p 1433:1433 \
-    microsoft/mssql-server-linux:2017-CU4
+    ${MSSQL_REPOSITORY}
   
   echo "Done to run mssql."
 }
@@ -31,13 +31,13 @@ function run_gradle_docker () {
   echo "MSSQL_SERVER_ADDRESS: ${MSSQL_SERVER_ADDRESS}"
   
   docker login -u ${DOCKERHUB_USER} -p ${DOCKERHUB_PASSWORD}
-  docker pull dock9/oraclejdk8:gradle-3.5.1
+  docker pull ${GRADLE_JDK_REPOSITORY}
   docker run --rm \
     --name=grails-nine-db \
     --volume /data:/app \
     -e MYSQL_SERVER_ADDRESS=${MYSQL_SERVER_ADDRESS} \
     -e MSSQL_SERVER_ADDRESS=${MSSQL_SERVER_ADDRESS} \
-    dock9/oraclejdk8:gradle-3.5.1 /app/ci-scripts/dbcreate.sh dev
+    ${GRADLE_JDK_REPOSITORY} /app/ci-scripts/dbcreate.sh dev
 
   echo "Done to run gradle."
 }
@@ -132,6 +132,10 @@ rm -rf /var/run/docker.pid
 # otherwise, spawn a shell as well
 # DOCKER_DAEMON_ARGS="-D"
 
+# Use local address to connect to mysql and mssql
+export MYSQL_SERVER_ADDRESS=172.17.0.1
+export MSSQL_SERVER_ADDRESS=172.17.0.1
+
 if [ "$PORT" ]
 then
 	exec dockerd -H 0.0.0.0:$PORT -H unix:///var/run/docker.sock \
@@ -158,8 +162,6 @@ else
 		fi
 		sleep 1
 	done
-  
-  echo "============== None PORT ==================="
 
   run_mysql_docker
   run_mssql_docker

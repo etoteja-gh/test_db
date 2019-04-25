@@ -79,8 +79,9 @@ jobs:
             #  --docker-user=test \
             #  --docker-password='123qwe!@#QWE' \
             #  --docker-repo=dock9/ocr:latest \
-            #  --mysql-host=127.0.0.1 \
-            #  --mssql-host=127.0.0.1 \
+            #  --mysql-repo=mysql/mysql-server:5.7 \
+            #  --mssql-repo=microsoft/mssql-server-linux:2017-CU4 \
+            #  --gradle-jdk-repo=dock9/oraclejdk8:gradle-3.5.1
             #  --rancher-api-access-key=token-8pv6f \
             #  --rancher-api-secret-key=462fwxgwhw94lsnspqmktdvnsbjr786nhfdwst5h8tlzlsp7tvkf97 \
             #  --rancher-workload-redeployment-api=''
@@ -89,8 +90,9 @@ jobs:
             # --docker-user: $DOCKERHUB_USER.
             # --docker-password: $DOCKERHUB_PASSWORD
             # --docker-repo: $DOCKER_REPOSITORY:$DOCKER_REPOSITORY_TAG. default dock9/nine-db:latest
-            # --mysql-host=$MYSQL_SERVER_ADDRESS
-            # --mssql-host=$MSSQL_SERVER_ADDRESS
+            # --mysql-repo=$MYSQL_REPOSITORY
+            # --mssql-repo=$MSSQL_REPOSITORY
+            # --gradle-jdk-repo=$GRADLE_JDK_REPOSITORY
             # --rancher-api-access-key: $RANCHER_API_ACCESS_KEY
             # --rancher-api-secret-key: $RANCHER_API_SECRET_KEY
             # --rancher-workload-redeployment-api: $RANCHER_WORKLOAD_REDEPLOYMENT_API
@@ -99,7 +101,7 @@ jobs:
             command: |
               ssh -o StrictHostKeyChecking=no \
                 $TARGET_SERVER_USER_NAME@$TARGET_SERVER_ADDRESS \
-                "/bin/bash ${DEPLOYMENT_SCRIPT_FILE_PATH} --docker-user=${DOCKERHUB_USER} --docker-password=${DOCKERHUB_PASSWORD} --docker-repo=${DOCKER_REPOSITORY}:${DOCKER_REPOSITORY_TAG} --mysql-repo=mysql/mysql-server:5.7 --mysql-host=${MYSQL_SERVER_ADDRESS} --mssql-repo=microsoft/mssql-server-linux:2017-CU4 --mssql-host=${MSSQL_SERVER_ADDRESS} --circl-branch=${CIRCLE_BRANCH}"
+                "/bin/bash ${DEPLOYMENT_SCRIPT_FILE_PATH} --docker-user=${DOCKERHUB_USER} --docker-password=${DOCKERHUB_PASSWORD} --docker-repo=${DOCKER_REPOSITORY}:${DOCKER_REPOSITORY_TAG} --mysql-repo=${MYSQL_REPOSITORY} --mssql-repo=${MSSQL_REPOSITORY} --gradle-jdk-repo=${GRADLE_JDK_REPOSITORY} --circl-branch=${CIRCLE_BRANCH} --rancher-api-access-key=${RANCHER_API_ACCESS_KEY} --rancher-api-secret-key=${RANCHER_API_SECRET_KEY} --rancher-workload-redeployment-api=${RANCHER_WORKLOAD_REDEPLOYMENT_API} --rancher-workload-redeployment-api-data=${RANCHER_WORKLOAD_REDEPLOYMENT_API_DATA}"
 
 workflows:
   version: 2
